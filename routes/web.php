@@ -24,3 +24,6 @@ Route::prefix('admin')
     Route::get('/', 'App\Http\Controllers\Admin\HomeController@index')->name('admin.home');
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

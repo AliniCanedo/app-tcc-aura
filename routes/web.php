@@ -17,5 +17,10 @@ Route::prefix('admin')
 ->group(function () {
     Route::get('/', 'App\Http\Controllers\Admin\HomeController@index')->name('admin.home');
 });
+Route::prefix('aluno')
+->middleware(['auth:sanctum', 'role:aluno'])
+->group(function () {
+    Route::get('/', 'App\Http\Controllers\HomeController@index')->name('aluno.home');
+});
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();

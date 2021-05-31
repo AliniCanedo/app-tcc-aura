@@ -12,18 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::prefix('admin')
 ->middleware(['auth:sanctum', 'role:admin'])
 ->group(function () {
-
     Route::get('/', 'App\Http\Controllers\Admin\HomeController@index')->name('admin.home');
-
 });
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');

@@ -2,22 +2,16 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="row">
+      <div class="col-md-12">
+        <h1>Bem Vindo</h1> 
+        <p>Sistema de pesquisa de satisfação AURA</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati ullam cumque itaque. Ut nobis ab sunt ipsa voluptates fuga corporis tenetur. Perspiciatis ex est odio minus magnam officiis molestiae.
+        </p>
+      </div>
+  </div>
+  <div class="col-md-12">
+      <a href="" class="btn btn-primary">Iniciar a pesquisa</a>
+  </div>
 </div>
 @endsection

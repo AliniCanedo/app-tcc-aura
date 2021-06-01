@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+   {{--  <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body>
     <div class="d-flex align-items-stretch">
@@ -52,7 +52,7 @@
                 @endguest
             </ul>
         </div>
-        <div style="  display: flex;
+        <div style="display: flex;
         overflow-x: hidden;
         width: 100%;
         min-height: calc(100vh - 72px);
@@ -74,6 +74,9 @@
                 <!-- page-content" -->
             </div>
         </div>
-      </div>
+    </div>
+    @include('sweetalert::alert')
+    @yield('javacript-includes', '')
+    @yield('javascript', '')
 </body>
 </html>

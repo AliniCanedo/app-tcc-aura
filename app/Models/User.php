@@ -28,6 +28,7 @@ class User extends Authenticatable
         'matricula',
         'periodo',
         'password',
+        'type',
     ];
 
     /**

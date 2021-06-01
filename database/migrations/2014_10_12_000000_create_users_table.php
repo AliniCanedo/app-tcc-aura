@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('matricula');
             $table->string('periodo');
+            $table->string('type')->default('client')->comment('client, guest, admin.');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

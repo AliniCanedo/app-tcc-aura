@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'Listar Classificações')
+@section('title', 'Listar Perguntas')
 
 @section('content')
 <div class="row">
     <div class="col">
-        <a href="{{ route('admin.classifications.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="bi bi-plus"></i> Nova Classificação</a>
+        <a href="{{ route('admin.questions.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="bi bi-plus"></i> Nova Pergunta</a>
     </div>
 </div>
 <div class="row">
@@ -42,7 +42,7 @@
             },
             processing: true,
             serverSide: true,
-            ajax: '{!! route('admin.classifications.list') !!}',
+            ajax: '{!! route('admin.questions.list') !!}',
             columns: [
                 { data: 'id', name: 'id', className: 'text-center' },
                 { data: 'description', name: 'description' },

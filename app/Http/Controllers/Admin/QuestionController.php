@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Classification;
+use App\Models\Question;
 use Yajra\Datatables\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class ClassificationController extends Controller
+class QuestionController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ClassificationController extends Controller
    */
   public function index()
   {
-      return view('admin.classifications');
+      return view('admin.questions');
   }
 
   /**
@@ -28,7 +28,7 @@ class ClassificationController extends Controller
    */
   public function list()
   {
-      $data = Classification::orderBy('id')->get();
+      $data = Question::orderBy('id')->get();
       return DataTables::of($data)
           ->editColumn('created_at', function ($d) {
               return $d->created_at->format('d/m/Y');
@@ -37,7 +37,7 @@ class ClassificationController extends Controller
               return $d->updated_at->format('d/m/Y');
           })
           ->addColumn('actions', function ($d) {
-              return '<a href="'.route('admin.classifications.edit', $d->id).'" class="btn btn-sm btn-secondary"><i class="bi bi-pencil-square"></i> Ver/Editar</a>';
+              return '<a href="'.route('admin.questions.edit', $d->id).'" class="btn btn-sm btn-secondary"><i class="bi bi-pencil-square"></i> Ver/Editar</a>';
           })
           ->rawColumns(['actions'])
       ->make();
@@ -84,13 +84,13 @@ class ClassificationController extends Controller
   public function edit($id)
   {
       if ($id === 'new') {
-          $data = new Classification;
+          $data = new Question;
           $data->id = 0;
       }
       else {
-          $data = Classification::findOrFail($id);
+          $data = Question::with('classification', 'modelo')->findOrFail($id);
       }
-      return view('admin.classification', compact('data'));
+      return view('admin.question', compact('data'));
   }
 
   /**
@@ -104,10 +104,10 @@ class ClassificationController extends Controller
   {
       if ($id == 'new' || $id == 0) {
           $id = 0;
-          $data = new Classification;
+          $data = new Question;
       }
       else {
-          $data = Classification::findOrFail($id);
+          $data = Question::findOrFail($id);
       }
 
       $rules = [];
@@ -123,7 +123,7 @@ class ClassificationController extends Controller
       $data->save();
 
       Alert::success('Sucesso', 'Classificação salva com sucesso!');
-      return redirect()->route('admin.classifications');
+      return redirect()->route('admin.questions');
   }
 
   /**
@@ -134,11 +134,11 @@ class ClassificationController extends Controller
    */
   public function destroy($id)
   {
-      $data = Classification::findOrFail($id);
+      $data = Question::findOrFail($id);
 
       $data->delete();
 
       Alert::success('Sucesso', 'Classificação removida com sucesso.');
-      return redirect()->route('admin.classifications');
+      return redirect()->route('admin.questions');
   }
 }

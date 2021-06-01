@@ -23,6 +23,12 @@ Route::prefix('admin')
     Route::get('/classificacoes/edit/{id}', 'App\Http\Controllers\Admin\ClassificationController@edit')->name('admin.classifications.edit');
     Route::post('/classificacoes/save/{id}', 'App\Http\Controllers\Admin\ClassificationController@update')->name('admin.classifications.save');
     Route::post('/classificacoes/delete/{id}', 'App\Http\Controllers\Admin\ClassificationController@destroy')->name('admin.classifications.delete');
+    // PERGUNTAS
+    Route::get('/perguntas', 'App\Http\Controllers\Admin\QuestionController@index')->name('admin.questions');
+    Route::get('/perguntas/list', 'App\Http\Controllers\Admin\QuestionController@list')->name('admin.questions.list');
+    Route::get('/perguntas/edit/{id}', 'App\Http\Controllers\Admin\QuestionController@edit')->name('admin.questions.edit');
+    Route::post('/perguntas/save/{id}', 'App\Http\Controllers\Admin\QuestionController@update')->name('admin.questions.save');
+    Route::post('/perguntas/delete/{id}', 'App\Http\Controllers\Admin\QuestionController@destroy')->name('admin.questions.delete');
 });
 Route::prefix('aluno')
 ->middleware(['auth:sanctum', 'role:aluno'])

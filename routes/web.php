@@ -35,6 +35,7 @@ Route::prefix('client')
 ->group(function () {
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('client.home');
     Route::get('/respostas', 'App\Http\Controllers\AnswerController@index')->name('client.answer');
+    
 });
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();

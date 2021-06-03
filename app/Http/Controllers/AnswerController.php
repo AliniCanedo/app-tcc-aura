@@ -20,8 +20,8 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $data = Question::with('classification', 'modelo')->get();
-/*         dd($data); */
+        $data = Question::with('classification', 'modelo')->get();;
+     /*    dd($data); */
         return view('answers', compact('data'));
     }
 

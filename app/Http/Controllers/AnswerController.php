@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:client')->except(['index', 'login']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,9 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        //
+        $data = Question::with('classification', 'modelo')->get();
+/*         dd($data); */
+        return view('answers', compact('data'));
     }
 
     /**

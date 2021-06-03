@@ -11,7 +11,7 @@
       </div>
   </div>
   <div class="col-md-12">
-      <a href="#" class="btn btn-primary">Iniciar a pesquisa</a>
+      <a href="{{ route('client.answer')}}" class="btn btn-primary">Iniciar a pesquisa</a>
   </div>
 </div>
 @endsection

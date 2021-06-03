@@ -19,18 +19,17 @@ class UserSeeder extends Seeder
                 // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $permission = Permission::create(['name' => 'users']); // Was supposed to be que registered guests - replaced with guests
-        $permission = Permission::create(['name' => 'guests']);
+        $permission = Permission::create(['name' => 'users']); 
         $permission = Permission::create(['name' => 'clients']);
         $permission = Permission::create(['name' => 'admins']);
         $permission = Permission::create(['name' => 'classifications']);
-
+        
         $user = Role::create(['name' => 'user']);
         $client = Role::create(['name' => 'client']);
         $admin = Role::create(['name' => 'admin']);
 
         $admin->givePermissionTo(Permission::all());
-
+        $client->givePermissionTo(Permission::all());
         $newUser = User::create([
             'id' => 1,
             'name' => 'Webmaster Alini',
@@ -62,6 +61,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123123123'),
             'type' => 'client',
         ]);
+
         $newUser->assignRole('client');
     }
 }

@@ -12,16 +12,16 @@ class Question extends Model
     protected $fillable = [
         'id_classification',
         'id_modelo',
-        'descripiton',
+        'description',
     ];
 
     public function classification()
     {
-        return $this->hasOne(Classification::class);
+        return $this->hasOne(Classification::class, 'id', 'classificacao_id');
     }
 
     public function modelo()
     {
-        return $this->hasOne(Classification::class);
+        return $this->hasOne(Modelo::class, 'id', 'id_modelo');
     }
 }

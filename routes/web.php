@@ -30,10 +30,11 @@ Route::prefix('admin')
     Route::post('/perguntas/save/{id}', 'App\Http\Controllers\Admin\QuestionController@update')->name('admin.questions.save');
     Route::post('/perguntas/delete/{id}', 'App\Http\Controllers\Admin\QuestionController@destroy')->name('admin.questions.delete');
 });
-Route::prefix('aluno')
-->middleware(['auth:sanctum', 'role:aluno'])
+Route::prefix('client')
+->middleware(['auth:sanctum', 'role:client'])
 ->group(function () {
-    Route::get('/', 'App\Http\Controllers\HomeController@index')->name('aluno.home');
+    Route::get('/', 'App\Http\Controllers\HomeController@index')->name('client.home');
+    Route::get('/respostas', 'App\Http\Controllers\AnswerController@index')->name('client.answer');
 });
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();

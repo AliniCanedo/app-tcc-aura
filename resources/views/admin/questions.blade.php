@@ -15,6 +15,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Descrição</th>
+                        <th>Classificação</th>
                         <th>Criado em</th>
                         <th>Alterado em</th>
                         <th class="text-right">Ações</th>
@@ -46,6 +47,7 @@
             columns: [
                 { data: 'id', name: 'id', className: 'text-center' },
                 { data: 'description', name: 'description' },
+                { data: 'id_classification', name: 'id_classification' },
                 { data: 'created_at', name: 'created_at' },
                 { data: 'updated_at', name: 'updated_at' },
                 { data: 'actions', name: 'actions', orderable: false, searchable: false, className: 'text-right' }
@@ -58,7 +60,7 @@
                 [ 10, 25, 50, 100, 1000, 5000, 10000, 50000, -1 ],
                 [ '10 linhas', '25 linhas', '50 linhas', '100 linhas', '1000 linhas', '5000 linhas', '10000 linhas', '50000 linhas', 'Todos' ]
             ],
-            pageLength: 50,
+            pageLength: 10,
             buttons: [
                 {
                     'extend': 'print',
@@ -71,6 +73,7 @@
                 }
             ]
         });
+        
     });
 </script>
 @endsection

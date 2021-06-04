@@ -29,6 +29,7 @@ class QuestionController extends Controller
   public function list()
   {
       $data = Question::orderBy('id')->get();
+
       return DataTables::of($data)
           ->editColumn('created_at', function ($d) {
               return $d->created_at->format('d/m/Y');

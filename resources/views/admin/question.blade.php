@@ -7,16 +7,51 @@
             <form action="{{ route('admin.questions.save', $data->id) }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $data->id }}">
+                @csrf
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control @error('description') is-invalid @enderror"
+                            name="description" id="description" placeholder="Descrição" value="{{ $data->description }}">
+                        <label for="description">Descrição</label>
+                    </div>
+                    @error('description')
+                        <div class="text-danger mt-1">
+                            <small>{{ $message }}</small>
+                        </div>
+                    @enderror
+                </div>
 
-                <label for="description">Descrição</label>
-                <textarea name="description" id="description" rows="3"
-                    class="form-control">{{ old('description', $data->description) }}</textarea>
-                @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <div class="col-md-12 mt-3">
+                    <select class="form-select @error('id_modelo') is-invalid @enderror" name="id_modelo" id="id_modelo">
+                        <option value="" {{ empty(old('id_modelo', $data->modelo)) ? 'selected' : '' }}>Selecione um
+                            Modelo
+                        </option>
+                        @foreach ($data->modelo as $modelo)
+                            <option value="{{ $modelo->id }}">{{ $modelo->description }}</option>
+                        @endforeach
+                    </select>
+                    @error('id_modelo')
+                        <div class="text-danger mt-1">
+                            <small>{{ $message }}</small>
+                        </div>
+                    @enderror
+                </div>
 
+                <div class="col-md-12 mt-3">
+                    <select class="form-select" name="id_classification" id="id_classification">
+                        <option value="" {{ empty(old('id_classification', $data->id)) ? 'selected' : '' }}>Selecione uma
+                            Classificação
+                        </option>
+                        @foreach ($data->classifications as $classification)
+                            <option value="{{ $classification->id }}">{{ $classification->description }}</option>
+                        @endforeach
+                    </select>
+                    @error('id_classification')
+                        <div class="text-danger mt-1">
+                            <small>{{ $message }}</small>
+                        </div>
+                    @enderror
+                </div>
 
                 <div class="form-group row mb-3">
                     <div class="col">

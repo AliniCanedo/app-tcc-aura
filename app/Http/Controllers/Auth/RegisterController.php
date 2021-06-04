@@ -57,7 +57,6 @@ class RegisterController extends Controller
             'periodo' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        dd($data);
     }
 
     /**

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Question;
+use App\Models\Modelo;
+use App\Models\Classification;
 use Yajra\Datatables\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -29,7 +31,6 @@ class QuestionController extends Controller
   public function list()
   {
       $data = Question::orderBy('id')->get();
-
       return DataTables::of($data)
           ->editColumn('created_at', function ($d) {
               return $d->created_at->format('d/m/Y');
@@ -89,8 +90,10 @@ class QuestionController extends Controller
           $data->id = 0;
       }
       else {
-          $data = Question::with('classification', 'modelo')->findOrFail($id);
+        $data = Question::findOrFail($id);
       }
+      $data->modelo = Modelo::get();
+      $data->classifications = Classification::orderBy('description')->get();
       return view('admin.question', compact('data'));
   }
 
@@ -112,7 +115,9 @@ class QuestionController extends Controller
       }
 
       $rules = [];
-      $rules['description'] = 'nullable|string';
+      $rules['description'] = 'required';
+      $rules['id_classification'] = 'required';
+      $rules['id_modelo'] = 'required';
 
       $validator = Validator::make($request->all(), $rules);
 
@@ -121,6 +126,9 @@ class QuestionController extends Controller
           return redirect()->back()->withErrors($validator)->withInput();
       }
       $data->description = $request->description;
+      $data->id_classification = $request->id_classification;
+      $data->id_modelo = $request->id_modelo;
+      
       $data->save();
 
       Alert::success('Sucesso', 'Classificação salva com sucesso!');

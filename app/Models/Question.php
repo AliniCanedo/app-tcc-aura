@@ -15,7 +15,7 @@ class Question extends Model
         'description',
     ];
 
-    public function classification()
+    public function classifications()
     {
         return $this->hasOne(Classification::class, 'id', 'id_classification');
     }

@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  {{--   <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 
 <body>
@@ -39,8 +39,8 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <p class="text-warning p-2">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                        <p class="p-2">
+                            <a href="/" class="text-warning"> {{ Auth::user()->name }}</a> <span class="caret"></span>
                         </p>
                     </li>
                     <li class="nav-item">
@@ -55,7 +55,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
+                                                                        document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">

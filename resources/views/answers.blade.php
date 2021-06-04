@@ -3,7 +3,7 @@
 @section('content')
     <form action="" method="post">
         @foreach ($data as $data)
-            <h3>{{ $data->classification->description }}</h3>
+            <h3>{{ $data->classifications->description }}</h3>
             <p>{{ $data->description }}</p>
             @if ($data->modelo->id === 1)
                 <div class="row">

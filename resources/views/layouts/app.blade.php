@@ -25,7 +25,7 @@
 
 <body>
     <div class="d-flex align-items-stretch">
-        <div class="bg-dark" style="width: 200px; height: 100vw">
+        <div class="bg-dark" style="width: 200px;">
             <ul class="navbar-nav ml-auto mt-5">
                 <!-- Authentication Links -->
                 @guest
@@ -39,7 +39,7 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <p id="navbarDropdown" class="dropdown-item text-capitalize text-white" href="#" role="button">
+                        <p id="navbarDropdown" class="dropdown-item text-capitalize text-white" >
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </p>
                     </li>

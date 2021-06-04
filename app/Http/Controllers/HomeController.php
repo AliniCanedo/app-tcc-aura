@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->route('admin.home');
+            }
+            elseif (Auth::user()->hasRole('client')) {
+            }
+        }
         return view('home');
     }
 }

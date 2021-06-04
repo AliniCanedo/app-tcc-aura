@@ -20,21 +20,21 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  {{--   <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+{{--     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 
 <body>
     <div class="d-flex align-items-stretch">
         <div class="bg-dark" style="width: 200px; height: 100vw">
-            <ul class="navbar-nav p-3">
+            <ul class="navbar-nav ml-auto mt-5">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link  text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="{{ route('register') }}">{{ __('Registrar-se') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar-se') }}</a>
                         </li>
                     @endif
                 @else
@@ -44,18 +44,8 @@
                         </p>
                     </li>
                     <li class="nav-item">
-                        <a class="dropdown-item text-white" href="{{ route('admin.questions') }}">
-                            Perguntas
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="dropdown-item text-white" href="{{ route('admin.classifications') }}">
-                            Classificações
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
+                                                            document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">

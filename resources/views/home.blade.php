@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.aluno')
 
 @section('content')
 <div class="container">

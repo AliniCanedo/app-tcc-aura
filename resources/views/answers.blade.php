@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.aluno')
 
 @section('content')
     <form action="" method="post">

@@ -62,7 +62,7 @@
 
                             <div class="form-group row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -78,7 +78,7 @@
 
                             <div class="form-group row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -95,7 +95,7 @@
 
                             <div class="form-group row mb-3">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirme sua senha') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"

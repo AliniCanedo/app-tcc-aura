@@ -1,13 +1,33 @@
 @extends('layouts.aluno')
 
 @section('content')
-    <form action="{{ route('client.store')}}" method="post">
+    <form action="{{ route('client.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @csrf
-        @foreach($data as $data)
-        <p>{{ $data->description }}</p>
-        <input type="textbox" class="nps" id="value_id" name="value_id[]" data-flex-minlabel="Discordo" 
-            data-flex-maxlabel="Concordo" class="ff-rating">
+        @foreach ($data as $data)
+            @if ($data->modelo->id === 1)
+                <table class="table">
+                    <tr>
+                        <td>
+                            <p><b>{{ $data->classifications->description }}</b></p>
+                            <p>{{ $data->description }}</p>
+                            <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
+                                data-flex-maxlabel="Concordo" class="multiple ff-rating">
+                        </td>
+                    </tr>
+                </table>
+            @else
+                <table class="table">
+                    <tr>
+                        <td>
+                            <p><b>{{ $data->classifications->description }}</b></p>
+                            <p>{{ $data->description }}</p>
+                            <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
+                                data-flex-maxlabel="Concordo" class="nps ff-rating">
+                        </td>
+                    </tr>
+                </table>
+            @endif
         @endforeach
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
@@ -21,10 +41,20 @@
 @endsection
 @section('javascript')
     <script>
+        
         $(document).ready(function() {
-            $('.nps').ffrating({
-                isStar: false
+            $('.multiple').ffrating({
+                isStar: false,
+                min: 1,
+                max: 6
             });
         });
+        $(document).ready(function() {
+            $('.nps').ffrating({
+                isStar: true,
+                max: 10
+            });
+        });
+
     </script>
 @endsection

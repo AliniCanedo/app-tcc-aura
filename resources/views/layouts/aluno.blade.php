@@ -25,7 +25,7 @@
 
 <body>
     <div class="d-flex align-items-stretch">
-        <div class="bg-dark" style="width: 200px; height: 100vw">
+        <div class="bg-dark" style="width: 200px;">
             <ul class="navbar-nav ml-auto mt-5">
                 <!-- Authentication Links -->
                 @guest
@@ -81,6 +81,8 @@
     @include('sweetalert::alert')
     @yield('javacript-includes', '')
     @yield('javascript', '')
+        @yield('css-includes', '')
+    @yield('css', '')
 </body>
 
 </html>

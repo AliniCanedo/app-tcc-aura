@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class AnswerController extends Controller
 {
-    public function __construct()
+/*     public function __construct()
     {
         $this->middleware('auth:client')->except(['index', 'login']);
     }
-
+ */
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +43,13 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data= new Answer();
+      
+        $data->save();
+        $data->values()->sync($request->value_id);
+        
+        Alert::success('Sucesso', 'Sua mensagem foi enviada com sucesso! Em breve nossa equipe entrará em contato.');
+        return view('aluno');
     }
 
     /**

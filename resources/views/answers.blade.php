@@ -1,85 +1,30 @@
 @extends('layouts.aluno')
 
 @section('content')
-    <form action="" method="post">
-        @foreach ($data as $data)
-            <h3>{{ $data->classifications->description }}</h3>
-            <p>{{ $data->description }}</p>
-            @if ($data->modelo->id === 1)
-                <div class="row">
-                    <div class="col-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="1">
-                            <label class="form-check-label" for="value">1 <b>Discordo totalmente</b></label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="2">
-                            <label class="form-check-label" for="value">2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="3">
-                            <label class="form-check-label" for="value">3</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="4">
-                            <label class="form-check-label" for="value">4</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="5">
-                            <label class="form-check-label" for="value">5</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="6">
-                            <label class="form-check-label" for="value">6 <b>Concordo totalmente</b></label>
-                        </div>
-                    </div>
-                </div>
-            @else
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="1">
-                            <label class="form-check-label" for="value">1</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="2">
-                            <label class="form-check-label" for="value">2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="3">
-                            <label class="form-check-label" for="value">3</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="4">
-                            <label class="form-check-label" for="value">4</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="5">
-                            <label class="form-check-label" for="value">5</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="6">
-                            <label class="form-check-label" for="value">6</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="7">
-                            <label class="form-check-label" for="value">7</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="8">
-                            <label class="form-check-label" for="value">8</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="9">
-                            <label class="form-check-label" for="value">9</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="value" id="value" value="10">
-                            <label class="form-check-label" for="value">10</label>
-                        </div>
-                    </div>
-                </div>
-            @endif
+    <form action="{{ route('client.store')}}" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @csrf
+        @foreach($data as $data)
+        <p>{{ $data->description }}</p>
+        <input type="textbox" class="nps" id="value_id" name="value_id[]" data-flex-minlabel="Discordo" 
+            data-flex-maxlabel="Concordo" class="ff-rating">
         @endforeach
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+@endsection
+@section('css-includes')
+    <link rel="stylesheet" href="{{ asset('css/ffrating.css') }}">
+@endsection
+@section('javacript-includes')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/ffrating.js') }}" defer></script>
+@endsection
+@section('javascript')
+    <script>
+        $(document).ready(function() {
+            $('.nps').ffrating({
+                isStar: false
+            });
+        });
+    </script>
 @endsection

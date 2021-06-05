@@ -90,8 +90,11 @@
         </div>
     </div>
     @include('sweetalert::alert')
+    @yield('css-includes', '')
+    @yield('css', '')
     @yield('javacript-includes', '')
     @yield('javascript', '')
+
 </body>
 
 </html>

@@ -35,7 +35,7 @@ Route::prefix('client')
 ->group(function () {
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('client.home');
     Route::get('/respostas', 'App\Http\Controllers\AnswerController@index')->name('client.answer');
-    Route::post('/obrigado', 'App\Http\Controllers\AnswerController@store')->name('client.store');
+    Route::post('/respostas', 'App\Http\Controllers\AnswerController@store')->name('client.store');
     
 });
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');

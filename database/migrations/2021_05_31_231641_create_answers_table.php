@@ -17,6 +17,8 @@ class CreateAnswersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('matricula_id');
             $table->foreign('matricula_id')->references('id')->on('users')->onDelete('cascade'); 
+            $table->boolean('nao_sabe')->default(false);
+            $table->boolean('nao_aplica')->default(false);
             $table->timestamps();
         });
     }

@@ -12,7 +12,19 @@
                             <p><b>{{ $data->classifications->description }}</b></p>
                             <p>{{ $data->description }}</p>
                             <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
-                                data-flex-maxlabel="Concordo" class="multiple ff-rating">
+                                data-flex-maxlabel="Concordo Totalmente" class="multiple ff-rating">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="nao_sabe">
+                                <label class="form-check-label" for="nao_sabe">
+                                    Não sei responder
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="nao_aplica">
+                                <label class="form-check-label" for="nao_aplica">
+                                    Não se aplica
+                                </label>
+                            </div>
                         </td>
                     </tr>
                 </table>
@@ -41,7 +53,6 @@
 @endsection
 @section('javascript')
     <script>
-        
         $(document).ready(function() {
             $('.multiple').ffrating({
                 isStar: false,
@@ -52,6 +63,7 @@
         $(document).ready(function() {
             $('.nps').ffrating({
                 isStar: true,
+                min: 1,
                 max: 10
             });
         });

@@ -49,11 +49,12 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $data->matricula_id = Auth::user()->id;
+        
         $data->save();
 
         $data->questions()->sync($request->value_id);
         
-        Alert::success('Sucesso', 'Obrigado por nos avaliar.');
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
         return view('home');
     }
 

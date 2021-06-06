@@ -11,6 +11,8 @@ class Answer extends Model
 
     protected $fillable = [
         'id_matricula', 
+        'nao_sabe', 
+        'nao_aplica'
     ];
 
     public function questions()

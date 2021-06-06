@@ -32,7 +32,7 @@ CREATE TABLE `answers` (
   PRIMARY KEY (`id`),
   KEY `answers_matricula_id_foreign` (`matricula_id`),
   CONSTRAINT `answers_matricula_id_foreign` FOREIGN KEY (`matricula_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `answers_questions` (
   KEY `answers_questions_question_id_foreign` (`question_id`),
   CONSTRAINT `answers_questions_answer_id_foreign` FOREIGN KEY (`answer_id`) REFERENCES `answers` (`id`) ON DELETE CASCADE,
   CONSTRAINT `answers_questions_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,11 +83,11 @@ DROP TABLE IF EXISTS `classifications`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `classifications` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `classifications` (
 
 LOCK TABLES `classifications` WRITE;
 /*!40000 ALTER TABLE `classifications` DISABLE KEYS */;
-INSERT INTO `classifications` VALUES (1,'Disciplinas ','2021-06-06 06:03:38','2021-06-06 06:03:38'),(2,'Metodologia de Ensino (Aura)','2021-06-06 06:03:38','2021-06-06 06:03:38'),(3,'Curso ADS','2021-06-06 06:03:39','2021-06-06 06:03:39'),(4,'Professores','2021-06-06 06:03:39','2021-06-06 06:03:39'),(5,'Coordenação do Curso ','2021-06-06 06:03:39','2021-06-06 06:03:39'),(6,'Cursos e Atividades de Extensão','2021-06-06 06:03:39','2021-06-06 06:03:39'),(7,'Intercâmbio','2021-06-06 06:03:39','2021-06-06 06:03:39'),(8,'Estágio, TCC e Projeto  Integrador','2021-06-06 06:03:39','2021-06-06 06:03:39'),(9,'Infraestrutura','2021-06-06 06:03:39','2021-06-06 06:03:39');
+INSERT INTO `classifications` VALUES (1,'Disciplinas ','2021-06-06 07:38:39','2021-06-06 07:38:39'),(2,'Metodologia de Ensino (Aura)','2021-06-06 07:38:39','2021-06-06 07:38:39'),(3,'Curso ADS','2021-06-06 07:38:39','2021-06-06 07:38:39'),(4,'Professores','2021-06-06 07:38:39','2021-06-06 07:38:39'),(5,'Coordenação do Curso ','2021-06-06 07:38:39','2021-06-06 07:38:39'),(6,'Cursos e Atividades de Extensão','2021-06-06 07:38:39','2021-06-06 07:38:39'),(7,'Intercâmbio','2021-06-06 07:38:39','2021-06-06 07:38:39'),(8,'Estágio, TCC e Projeto  Integrador','2021-06-06 07:38:39','2021-06-06 07:38:39'),(9,'Infraestrutura','2021-06-06 07:38:39','2021-06-06 07:38:39');
 /*!40000 ALTER TABLE `classifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,15 +109,15 @@ DROP TABLE IF EXISTS `failed_jobs`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +141,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (31,'2014_10_12_000000_create_users_table',1),(32,'2014_10_12_100000_create_password_resets_table',1),(33,'2019_08_19_000000_create_failed_jobs_table',1),(34,'2019_12_14_000001_create_personal_access_tokens_table',1),(35,'2021_05_30_011511_create_permission_tables',1),(36,'2021_05_31_225723_create_modelos_table',1),(37,'2021_05_31_230651_create_classifications_table',1),(38,'2021_05_31_230834_create_questions_table',1),(39,'2021_05_31_231641_create_answers_table',1),(40,'2021_06_06_020008_create_answers_questions_table',1);
+INSERT INTO `migrations` VALUES (61,'2014_10_12_000000_create_users_table',1),(62,'2014_10_12_100000_create_password_resets_table',1),(63,'2019_08_19_000000_create_failed_jobs_table',1),(64,'2019_12_14_000001_create_personal_access_tokens_table',1),(65,'2021_05_30_011511_create_permission_tables',1),(66,'2021_05_31_225723_create_modelos_table',1),(67,'2021_05_31_230651_create_classifications_table',1),(68,'2021_05_31_230834_create_questions_table',1),(69,'2021_05_31_231641_create_answers_table',1),(70,'2021_06_06_020008_create_answers_questions_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,12 +163,12 @@ DROP TABLE IF EXISTS `model_has_permissions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `model_has_permissions` (
   `permission_id` bigint(20) unsigned NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `model_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
   KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`),
   CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,12 +189,12 @@ DROP TABLE IF EXISTS `model_has_roles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `model_has_roles` (
   `role_id` bigint(20) unsigned NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `model_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`role_id`,`model_id`,`model_type`),
   KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`),
   CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,12 +216,12 @@ DROP TABLE IF EXISTS `modelos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `modelos` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `value` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,7 +230,7 @@ CREATE TABLE `modelos` (
 
 LOCK TABLES `modelos` WRITE;
 /*!40000 ALTER TABLE `modelos` DISABLE KEYS */;
-INSERT INTO `modelos` VALUES (1,'Múltipla Escolha',6,'2021-06-06 06:03:39','2021-06-06 06:03:39'),(2,'NPS',10,'2021-06-06 06:03:39','2021-06-06 06:03:39');
+INSERT INTO `modelos` VALUES (1,'Múltipla Escolha',6,'2021-06-06 07:38:39','2021-06-06 07:38:39'),(2,'NPS',10,'2021-06-06 07:38:39','2021-06-06 07:38:39');
 /*!40000 ALTER TABLE `modelos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,11 +242,11 @@ DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,13 +267,13 @@ DROP TABLE IF EXISTS `permissions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `permissions` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `guard_name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +282,7 @@ CREATE TABLE `permissions` (
 
 LOCK TABLES `permissions` WRITE;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-INSERT INTO `permissions` VALUES (1,'users','web','2021-06-06 06:03:36','2021-06-06 06:03:36'),(2,'clients','web','2021-06-06 06:03:36','2021-06-06 06:03:36'),(3,'admins','web','2021-06-06 06:03:36','2021-06-06 06:03:36'),(4,'classifications','web','2021-06-06 06:03:36','2021-06-06 06:03:36');
+INSERT INTO `permissions` VALUES (1,'users','web','2021-06-06 07:38:37','2021-06-06 07:38:37'),(2,'clients','web','2021-06-06 07:38:37','2021-06-06 07:38:37'),(3,'admins','web','2021-06-06 07:38:37','2021-06-06 07:38:37'),(4,'classifications','web','2021-06-06 07:38:37','2021-06-06 07:38:37');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,18 +295,18 @@ DROP TABLE IF EXISTS `personal_access_tokens`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +329,7 @@ CREATE TABLE `questions` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `id_classification` bigint(20) unsigned NOT NULL,
   `id_modelo` bigint(20) unsigned NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -337,7 +337,7 @@ CREATE TABLE `questions` (
   KEY `questions_id_modelo_foreign` (`id_modelo`),
   CONSTRAINT `questions_id_classification_foreign` FOREIGN KEY (`id_classification`) REFERENCES `classifications` (`id`) ON DELETE CASCADE,
   CONSTRAINT `questions_id_modelo_foreign` FOREIGN KEY (`id_modelo`) REFERENCES `modelos` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -346,7 +346,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
-INSERT INTO `questions` VALUES (1,1,1,'As disciplinas cursadas contribuíram para sua formação integral, como cidadão e profissional ','2021-06-06 06:03:39','2021-06-06 06:03:39'),(2,1,1,'Os conteúdos abordados nas disciplinas do curso favoreceram sua atuação em estágios ou em atividades de iniciação profissional. ','2021-06-06 06:03:39','2021-06-06 06:03:39'),(3,1,1,'Os planos de ensino apresentados pelos professores contribuíram para o desenvolvimento das atividades acadêmicas e para seus estudos.','2021-06-06 06:03:39','2021-06-06 06:03:39'),(4,1,1,'As referências bibliográficas indicadas pelos professores nos planos de ensino contribuíram para seus estudos e aprendizagens.','2021-06-06 06:03:39','2021-06-06 06:03:39'),(5,1,1,'As avaliações da aprendizagem realizadas durante o curso foram compatíveis com os conteúdos ou temas trabalhados pelos professores.','2021-06-06 06:03:39','2021-06-06 06:03:39'),(6,1,1,'A biblioteca dispôs das referências bibliográficas que os estudantes necessitaram. ','2021-06-06 06:03:39','2021-06-06 06:03:39'),(7,1,1,'A instituição contou com biblioteca virtual ou conferiu acesso a obras disponíveis em acervos virtuais.','2021-06-06 06:03:39','2021-06-06 06:03:39'),(8,2,1,'As metodologias de ensino utilizadas no curso desafiaram você a aprofundar conhecimentos e desenvolver competências reflexivas e críticas. ','2021-06-06 06:03:40','2021-06-06 06:03:40'),(9,3,1,'O curso propiciou experiências de aprendizagem inovadoras','2021-06-06 06:03:40','2021-06-06 06:03:40'),(10,3,1,'O curso contribuiu para o desenvolvimento da sua consciência ética para o exercício profissional','2021-06-06 06:03:40','2021-06-06 06:03:40'),(11,3,1,'No curso você teve oportunidade de aprender a trabalhar em equipe. ','2021-06-06 06:03:40','2021-06-06 06:03:40'),(12,3,1,'O curso promoveu o desenvolvimento da sua capacidade de pensar criticamente, analisar e refletir sobre soluções para problemas da sociedade.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(13,3,1,'O curso contribuiu para você ampliar sua capacidade de comunicação nas formas oral e escrita.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(14,3,1,'O curso contribuiu para o desenvolvimento da sua capacidade de aprender e atualizar-se permanentemente.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(15,3,1,'O curso exigiu de você organização e dedicação frequente aos estudos.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(16,3,1,'O curso ofereceu condições para os estudantes participarem de eventos internos e/ou externos à instituição.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(17,3,1,'O curso favoreceu a articulação do conhecimento teórico com atividades práticas.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(18,3,1,'O curso propiciou acesso a conhecimentos atualizados e/ou contemporâneos em sua área de formação.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(19,3,1,'O curso disponibilizou monitores ou tutores para auxiliar os estudantes.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(20,3,1,'Os estudantes participaram de avaliações periódicas do curso (disciplinas, atuação dos professores, infraestrutura).','2021-06-06 06:03:40','2021-06-06 06:03:40'),(21,4,1,'As relações professor-aluno ao longo do curso estimularam você a estudar e aprender.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(22,4,1,'Os professores apresentaram disponibilidade para atender os estudantes fora do horário das aulas.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(23,4,1,'Os professores demonstraram domínio dos conteúdos abordados nas disciplinas.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(24,4,1,'Os professores utilizaram tecnologias da informação e comunicação (TICs) como estratégia de ensino (projetor multimídia, laboratório de informática, ambiente virtual de aprendizagem).','2021-06-06 06:03:40','2021-06-06 06:03:40'),(25,5,2,'A coordenação do curso esteve disponível para orientação acadêmica dos estudantes. ','2021-06-06 06:03:40','2021-06-06 06:03:40'),(26,6,2,'Foram oferecidas oportunidades para os estudantes superarem dificuldades relacionadas ao processo de formação.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(27,6,2,'Foram oferecidas oportunidades para os estudantes participarem de programas, projetos ou atividades de extensão universitária.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(28,6,2,'Foram oferecidas oportunidades para os estudantes participarem de projetos de iniciação científica e de atividades que estimularam a investigação acadêmica.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(29,6,2,'A instituição ofereceu oportunidades para os estudantes atuarem como representantes em órgãos colegiados.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(30,6,2,'As atividades práticas foram suficientes para relacionar os conteúdos do curso com a prática, contribuindo para sua formação profissional.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(31,6,2,'A instituição promoveu atividades de cultura, de lazer e de interação social.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(32,6,2,'As atividades acadêmicas desenvolvidas dentro e fora da sala de aula possibilitaram reflexão, convivência e respeito à diversidade.','2021-06-06 06:03:40','2021-06-06 06:03:40'),(33,7,2,'Foram oferecidas oportunidades para os estudantes realizarem intercâmbios e/ou estágios no país.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(34,7,2,'Foram oferecidas oportunidades para os estudantes realizarem intercâmbios e/ou estágios fora do país.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(35,8,2,'O estágio supervisionado proporcionou experiências diversificadas para a sua formação.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(36,8,2,'As atividades realizadas durante seu trabalho de conclusão de curso contribuíram para qualificar sua formação profissional.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(37,9,2,'A instituição dispôs de quantidade suficiente de funcionários para o apoio administrativo e acadêmico.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(38,9,2,'As condições de infraestrutura das salas de aula foram adequadas.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(39,9,2,'Os equipamentos e materiais disponíveis para as aulas práticas foram adequados para a quantidade de estudantes.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(40,9,2,' Os ambientes e equipamentos destinados às aulas práticas foram adequados ao curso.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(41,9,2,'A instituição dispôs de refeitório, cantina e banheiros em condições adequadas que atenderam as necessidades dos seus usuários.','2021-06-06 06:03:41','2021-06-06 06:03:41'),(42,5,2,'te','2021-06-06 06:39:32','2021-06-06 06:39:32');
+INSERT INTO `questions` VALUES (1,1,1,'As disciplinas cursadas contribuíram para sua formação integral, como cidadão e profissional ','2021-06-06 07:38:39','2021-06-06 07:38:39'),(2,1,1,'Os conteúdos abordados nas disciplinas do curso favoreceram sua atuação em estágios ou em atividades de iniciação profissional. ','2021-06-06 07:38:39','2021-06-06 07:38:39'),(3,1,1,'Os planos de ensino apresentados pelos professores contribuíram para o desenvolvimento das atividades acadêmicas e para seus estudos.','2021-06-06 07:38:39','2021-06-06 07:38:39'),(4,1,1,'As referências bibliográficas indicadas pelos professores nos planos de ensino contribuíram para seus estudos e aprendizagens.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(5,1,1,'As avaliações da aprendizagem realizadas durante o curso foram compatíveis com os conteúdos ou temas trabalhados pelos professores.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(6,1,1,'A biblioteca dispôs das referências bibliográficas que os estudantes necessitaram. ','2021-06-06 07:38:40','2021-06-06 07:38:40'),(7,1,1,'A instituição contou com biblioteca virtual ou conferiu acesso a obras disponíveis em acervos virtuais.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(8,2,1,'As metodologias de ensino utilizadas no curso desafiaram você a aprofundar conhecimentos e desenvolver competências reflexivas e críticas. ','2021-06-06 07:38:40','2021-06-06 07:38:40'),(9,3,1,'O curso propiciou experiências de aprendizagem inovadoras','2021-06-06 07:38:40','2021-06-06 07:38:40'),(10,3,1,'O curso contribuiu para o desenvolvimento da sua consciência ética para o exercício profissional','2021-06-06 07:38:40','2021-06-06 07:38:40'),(11,3,1,'No curso você teve oportunidade de aprender a trabalhar em equipe. ','2021-06-06 07:38:40','2021-06-06 07:38:40'),(12,3,1,'O curso promoveu o desenvolvimento da sua capacidade de pensar criticamente, analisar e refletir sobre soluções para problemas da sociedade.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(13,3,1,'O curso contribuiu para você ampliar sua capacidade de comunicação nas formas oral e escrita.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(14,3,1,'O curso contribuiu para o desenvolvimento da sua capacidade de aprender e atualizar-se permanentemente.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(15,3,1,'O curso exigiu de você organização e dedicação frequente aos estudos.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(16,3,1,'O curso ofereceu condições para os estudantes participarem de eventos internos e/ou externos à instituição.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(17,3,1,'O curso favoreceu a articulação do conhecimento teórico com atividades práticas.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(18,3,1,'O curso propiciou acesso a conhecimentos atualizados e/ou contemporâneos em sua área de formação.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(19,3,1,'O curso disponibilizou monitores ou tutores para auxiliar os estudantes.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(20,3,1,'Os estudantes participaram de avaliações periódicas do curso (disciplinas, atuação dos professores, infraestrutura).','2021-06-06 07:38:40','2021-06-06 07:38:40'),(21,4,1,'As relações professor-aluno ao longo do curso estimularam você a estudar e aprender.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(22,4,1,'Os professores apresentaram disponibilidade para atender os estudantes fora do horário das aulas.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(23,4,1,'Os professores demonstraram domínio dos conteúdos abordados nas disciplinas.','2021-06-06 07:38:40','2021-06-06 07:38:40'),(24,4,1,'Os professores utilizaram tecnologias da informação e comunicação (TICs) como estratégia de ensino (projetor multimídia, laboratório de informática, ambiente virtual de aprendizagem).','2021-06-06 07:38:40','2021-06-06 07:38:40'),(25,5,2,'A coordenação do curso esteve disponível para orientação acadêmica dos estudantes. ','2021-06-06 07:38:40','2021-06-06 07:38:40'),(26,6,2,'Foram oferecidas oportunidades para os estudantes superarem dificuldades relacionadas ao processo de formação.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(27,6,2,'Foram oferecidas oportunidades para os estudantes participarem de programas, projetos ou atividades de extensão universitária.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(28,6,2,'Foram oferecidas oportunidades para os estudantes participarem de projetos de iniciação científica e de atividades que estimularam a investigação acadêmica.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(29,6,2,'A instituição ofereceu oportunidades para os estudantes atuarem como representantes em órgãos colegiados.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(30,6,2,'As atividades práticas foram suficientes para relacionar os conteúdos do curso com a prática, contribuindo para sua formação profissional.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(31,6,2,'A instituição promoveu atividades de cultura, de lazer e de interação social.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(32,6,2,'As atividades acadêmicas desenvolvidas dentro e fora da sala de aula possibilitaram reflexão, convivência e respeito à diversidade.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(33,7,2,'Foram oferecidas oportunidades para os estudantes realizarem intercâmbios e/ou estágios no país.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(34,7,2,'Foram oferecidas oportunidades para os estudantes realizarem intercâmbios e/ou estágios fora do país.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(35,8,2,'O estágio supervisionado proporcionou experiências diversificadas para a sua formação.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(36,8,2,'As atividades realizadas durante seu trabalho de conclusão de curso contribuíram para qualificar sua formação profissional.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(37,9,2,'A instituição dispôs de quantidade suficiente de funcionários para o apoio administrativo e acadêmico.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(38,9,2,'As condições de infraestrutura das salas de aula foram adequadas.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(39,9,2,'Os equipamentos e materiais disponíveis para as aulas práticas foram adequados para a quantidade de estudantes.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(40,9,2,' Os ambientes e equipamentos destinados às aulas práticas foram adequados ao curso.','2021-06-06 07:38:41','2021-06-06 07:38:41'),(41,9,2,'A instituição dispôs de refeitório, cantina e banheiros em condições adequadas que atenderam as necessidades dos seus usuários.','2021-06-06 07:38:41','2021-06-06 07:38:41');
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,7 +364,7 @@ CREATE TABLE `role_has_permissions` (
   KEY `role_has_permissions_role_id_foreign` (`role_id`),
   CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -386,13 +386,13 @@ DROP TABLE IF EXISTS `roles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `roles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `guard_name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -401,7 +401,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'user','web','2021-06-06 06:03:36','2021-06-06 06:03:36'),(2,'client','web','2021-06-06 06:03:36','2021-06-06 06:03:36'),(3,'admin','web','2021-06-06 06:03:37','2021-06-06 06:03:37');
+INSERT INTO `roles` VALUES (1,'user','web','2021-06-06 07:38:37','2021-06-06 07:38:37'),(2,'client','web','2021-06-06 07:38:37','2021-06-06 07:38:37'),(3,'admin','web','2021-06-06 07:38:37','2021-06-06 07:38:37');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -414,19 +414,19 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `matricula` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `periodo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'client' COMMENT 'client, admin.',
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `matricula` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `periodo` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'client' COMMENT 'client, admin.',
+  `password` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -435,7 +435,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Webmaster Alini','alini.canedo@gmail.com',NULL,'','','admin','$2y$10$qMzKeBMyo9C.WzlBt.fY..kfzAdQlk8/YPIf0M7MWihAzY0M2XbQS',NULL,'2021-06-06 06:03:38','2021-06-06 06:03:38'),(2,'Webmaster Teste','alini.teste@gmail.com',NULL,'','','admin','$2y$10$E7mxYAWBiM1aSNQVgeH82OpZ.L6H1a6U2qIm5KGogTJ1cnbPkqkLm',NULL,'2021-06-06 06:03:38','2021-06-06 06:03:38'),(3,'Aluno de Testes','aluno@gmail.com',NULL,'','','client','$2y$10$X9avghQdSzMhRWO8xn9rLedP8fe/oRqV1xGL97DDNOvtCwfw6pKfm',NULL,'2021-06-06 06:03:38','2021-06-06 06:03:38');
+INSERT INTO `users` VALUES (1,'Webmaster Alini','alini.canedo@gmail.com',NULL,'','','admin','$2y$10$ejuGFQSM0KBe4iCSt0jOTeBo9UwUOIECWIvhaSXtVdnI7KBsyNGL.',NULL,'2021-06-06 07:38:38','2021-06-06 07:38:38'),(2,'Webmaster Teste','alini.teste@gmail.com',NULL,'','','admin','$2y$10$BXUkd67DViTbWIHjnMyPAekxxjadvaZT5OW8m4QMdaX7elcTdRh.m',NULL,'2021-06-06 07:38:38','2021-06-06 07:38:38'),(3,'Aluno de Testes','aluno@gmail.com',NULL,'','','client','$2y$10$Bqj00KbWV.weFuA7a9yW/.amDA4hsSL1skzjbb0LyaPzlQAZL5xA2',NULL,'2021-06-06 07:38:39','2021-06-06 07:38:39');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -448,4 +448,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-06  1:24:10
+-- Dump completed on 2021-06-06  3:06:45

@@ -24,4 +24,9 @@ class Question extends Model
     {
         return $this->hasOne(Modelo::class, 'id', 'id_modelo');
     }
+
+    public function answers()
+    {
+        return $this->belongsToMany(Answer::class, 'answers_questions', 'question_id', 'answer_id');
+    }
 }

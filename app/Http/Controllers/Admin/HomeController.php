@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Analisebusca;
 use App\Models\Question;
 
 class HomeController extends Controller
@@ -13,8 +12,7 @@ class HomeController extends Controller
     {
         $data = Question::with('classifications', 'modelo');
 
-        $buscas = Analisebusca::getData();
-        return view('admin.home', compact('data', 'buscas'));
+        return view('admin.home', compact('data',));
     }
 
 

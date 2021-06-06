@@ -10,13 +10,11 @@ class Answer extends Model
     use HasFactory;
 
     protected $fillable = [
-    'id_question',
-    'id_matricula', 
-    'value_answer'
+        'id_matricula', 
     ];
 
-    public function question()
+    public function questions()
     {
-        return $this->hasOne(Question::class, 'id', 'id_question');
+        return $this->belongsToMany(Question::class, 'answers_questions', 'answer_id', 'question_id');
     }
 }

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Answerquestion;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class AnswerController extends Controller
 {
@@ -44,13 +46,15 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        $data= new Answer();
-      
+        $data = new Answer();
+
+        $data->matricula_id = Auth::user()->id;
         $data->save();
-        $data->values()->sync($request->value_id);
+
+        $data->questions()->sync($request->value_id);
         
-        Alert::success('Sucesso', 'Sua mensagem foi enviada com sucesso! Em breve nossa equipe entrará em contato.');
-        return view('aluno');
+        Alert::success('Sucesso', 'Obrigado por nos avaliar.');
+        return view('home');
     }
 
     /**

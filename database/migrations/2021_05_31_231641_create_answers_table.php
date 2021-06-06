@@ -15,13 +15,8 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-/*             $table->unsignedBigInteger('id_question');
-            $table->foreign('id_question')->references('id')->on('questions')->onDelete('cascade');
-            $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade'); */
-           /*  $table->string('registration'); */
-/*             $table->date('date');
-            $table->integer('value'); */
+            $table->unsignedBigInteger('matricula_id');
+            $table->foreign('matricula_id')->references('id')->on('users')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

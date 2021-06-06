@@ -38,6 +38,13 @@ Route::prefix('client')
     Route::get('/respostas', 'App\Http\Controllers\AnswerController@index')->name('client.answer');
     Route::post('/respostas', 'App\Http\Controllers\AnswerController@store')->name('client.store');
     
+    Route::get('/mail', function() {
+        Mail::send('mail.agradecimento', ['Aura' => 'Obrigado por responder a nossa pesquisa!'], function ($m){
+            $m->from('alini.canedo@gmail.com');
+            $m->to('alini.canedo@gmail.com');
+        });
+    });
 });
+
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();

@@ -37,7 +37,16 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => [
+                'stack' => [
+                    'driver' => 'stack',
+                    'channels' => ['single'],
+                ],
+                'single' => [
+                    'driver' => 'errorlog',
+                    'level' => 'debug',
+                ]
+            ],
             'ignore_exceptions' => false,
         ],
 

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('admin')
+/* Route::prefix('admin')
 ->middleware(['auth:sanctum', 'role:admin'])
-->group(function () {
+->group(function () { */
     // HOME
     Route::get('/', 'App\Http\Controllers\Admin\HomeController@index')->name('admin.home');
     // CLASSIFICAÇÕES
@@ -30,10 +30,10 @@ Route::prefix('admin')
     Route::get('/perguntas/edit/{id}', 'App\Http\Controllers\Admin\QuestionController@edit')->name('admin.questions.edit');
     Route::post('/perguntas/save/{id}', 'App\Http\Controllers\Admin\QuestionController@update')->name('admin.questions.save');
     Route::post('/perguntas/delete/{id}', 'App\Http\Controllers\Admin\QuestionController@destroy')->name('admin.questions.delete');
-});
-Route::prefix('client')
+/* }); */
+/* Route::prefix('client')
 ->middleware(['auth:sanctum', 'role:client'])
-->group(function () {
+->group(function () { */
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('client.home');
     Route::get('/respostas', 'App\Http\Controllers\AnswerController@index')->name('client.answer');
     Route::post('/respostas', 'App\Http\Controllers\AnswerController@store')->name('client.store');
@@ -44,7 +44,7 @@ Route::prefix('client')
             $m->to('alini.canedo@gmail.com');
         });
     });
-});
+/* }); */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();

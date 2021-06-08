@@ -39,13 +39,13 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <p id="navbarDropdown" class="dropdown-item text-capitalize text-white" href="#" role="button">
+                        <p class="text-warning p-2">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </p>
                     </li>
                     <li class="nav-item">
                         <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                                        document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -77,11 +77,12 @@
                 <!-- page-content" -->
             </div>
         </div>
-      </div>
-      @include('sweetalert::alert')
-      @yield('javacript-includes', '')
-      @yield('javascript', '')
-      @yield('css-includes', '')
-      @yield('css', '')
+    </div>
+    @include('sweetalert::alert')
+    @yield('javacript-includes', '')
+    @yield('javascript', '')
+    @yield('css-includes', '')
+    @yield('css', '')
 </body>
+
 </html>

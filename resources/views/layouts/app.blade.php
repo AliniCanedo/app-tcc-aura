@@ -44,6 +44,16 @@
                         </p>
                     </li>
                     <li class="nav-item">
+                        <a class="dropdown-item text-white" href="{{ route('admin.questions') }}">
+                            Perguntas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item text-white" href="{{ route('admin.classifications') }}">
+                            Classificações
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

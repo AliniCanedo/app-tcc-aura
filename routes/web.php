@@ -48,3 +48,11 @@ Route::prefix('client')
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

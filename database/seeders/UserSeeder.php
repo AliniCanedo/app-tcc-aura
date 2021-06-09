@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         $admin->givePermissionTo(Permission::all());
         $client->givePermissionTo(Permission::all());
         $newUser = User::create([
-            'id' => 1,
+            'id' => 200,
             'name' => 'Webmaster Alini',
             'email' => 'alini.canedo@gmail.com',
             'matricula' => '',
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
         $newUser->assignRole('admin');
 
         $newUser = User::create([
-            'id' => 2,
+            'id' => 199,
             'name' => 'Webmaster Teste',
             'email' => 'alini.teste@gmail.com',
             'matricula' => '',
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
         $newUser->assignRole('admin');
 
         $newUser = User::create([
-            'id' => 3,
+            'id' => 198,
             'name' => 'Aluno de Testes',
             'email' => 'aluno@gmail.com',
             'matricula' => '',

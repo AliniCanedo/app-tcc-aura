@@ -26,15 +26,15 @@
 <body>
     <div class="d-flex align-items-stretch">
         <div class="bg-dark" style="width: 200px; height: 100vw">
-            <ul class="navbar-nav px-4 mt-5">
+            <ul class="navbar-nav  mt-5">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link text-white px-4" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Registrar-se') }}</a>
+                            <a class="nav-link text-white px-4" href="{{ route('register') }}">{{ __('Registrar-se') }}</a>
                         </li>
                     @endif
                 @else

@@ -35,8 +35,18 @@ Route::prefix('client')
 ->middleware(['auth:sanctum', 'role:client'])
 ->group(function () {
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('client.home');
-    Route::get('/respostas', 'App\Http\Controllers\AnswerController@index')->name('client.answer');
-    Route::post('/respostas', 'App\Http\Controllers\AnswerController@store')->name('client.store');
+    Route::get('/disciplina', 'App\Http\Controllers\AnswerController@disciplina')->name('answer.disciplina');
+
+    Route::get('/metodologia', 'App\Http\Controllers\AnswerController@metodologia')->name('answer.metodologia');
+    Route::get('/cursoads', 'App\Http\Controllers\AnswerController@cursoads')->name('answer.curso');
+    Route::get('/professores', 'App\Http\Controllers\AnswerController@professores')->name('answer.professores');
+    Route::get('/coordenacao', 'App\Http\Controllers\AnswerController@coordenacao')->name('answer.coordenacao');
+    Route::get('/curso-atividade', 'App\Http\Controllers\AnswerController@cursoAtividade')->name('answer.curso-atividade');
+    Route::get('/intercambio', 'App\Http\Controllers\AnswerController@intercambio')->name('answer.intercambio');
+    Route::get('/estagio-tcc-projeto', 'App\Http\Controllers\AnswerController@estagiotccprojeto')->name('answer.estagiotccprojeto');
+    Route::get('/infra', 'App\Http\Controllers\AnswerController@infra')->name('answer.infra');
+    Route::post('/disciplina', 'App\Http\Controllers\AnswerController@store')->name('client.store');
+
     
     Route::get('/mail', function() {
         Mail::send('mail.agradecimento', ['Aura' => 'Obrigado por responder a nossa pesquisa!'], function ($m){

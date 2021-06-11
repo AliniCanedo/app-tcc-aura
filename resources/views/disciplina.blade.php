@@ -9,13 +9,19 @@
                 <h5 class="mb-3">{{ $data->classifications->description }}</h5>
                 <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
                 <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
-                    data-flex-maxlabel="Concordo Totalmente" class="multiple ff-rating" required/>
+                    data-flex-maxlabel="Concordo Totalmente" class="multiple ff-rating" required />
+                    @error('value_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 <div class="row">
                     <div class="col">
                         <input type="radio" name="nao_sabe[]" id="nao_sabe_{{ $data->id }}"
                             class="ff-rating" />
                         <label for="nao_sabe_{{ $data->id }}">Não sabe esponder</label>
                     </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col">

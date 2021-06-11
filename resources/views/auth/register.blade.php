@@ -1,12 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.common')
 
 @section('content')
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registrar') }}</div>
-
+                <div class="card-header">{{ __('Registrar') }} | <a class="text-black"
+                        href="{{ route('login') }}">{{ __('Login') }}</a></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -15,7 +14,8 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -39,10 +40,13 @@
                             </div>
                         </div>
                         <div class="form-group row mb-3">
-                            <label for="matricula" class="col-md-4 col-form-label text-md-right">{{ __('Matricula') }}</label>
+                            <label for="matricula"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Matricula') }}</label>
 
                             <div class="col-md-6">
-                                <input id="matricula" type="text" class="form-control @error('matricula') is-invalid @enderror" name="matricula" value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
+                                <input id="matricula" type="text"
+                                    class="form-control @error('matricula') is-invalid @enderror" name="matricula"
+                                    value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
 
                                 @error('matricula')
                                     <span class="invalid-feedback" role="alert">
@@ -53,10 +57,13 @@
                         </div>
 
                         <div class="form-group row mb-3">
-                            <label for="periodo" class="col-md-4 col-form-label text-md-right">{{ __('Periodo') }}</label>
+                            <label for="periodo"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Periodo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="periodo" type="text" class="form-control @error('periodo') is-invalid @enderror" name="periodo" value="{{ old('periodo') }}" required autocomplete="periodo" autofocus>
+                                <input id="periodo" type="text" class="form-control @error('periodo') is-invalid @enderror"
+                                    name="periodo" value="{{ old('periodo') }}" required autocomplete="periodo"
+                                    autofocus>
 
                                 @error('periodo')
                                     <span class="invalid-feedback" role="alert">
@@ -69,7 +76,9 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password" required
+                                    autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -80,10 +89,12 @@
                         </div>
 
                         <div class="form-group row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar senha') }}</label>
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Confirmar senha') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
@@ -99,5 +110,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

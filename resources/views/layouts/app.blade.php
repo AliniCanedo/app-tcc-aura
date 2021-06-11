@@ -1,20 +1,15 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -546,172 +541,158 @@
             <i class="fas fa-bars"></i>
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
-            @guest
-                <div class="sidebar-menu">
-                    <ul>
-                        <li class="sidebar-menu">
-                            <a class="nav-link text-white px-4" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="sidebar-menu">
-                                <a class="nav-link text-white px-4"
-                                    href="{{ route('register') }}">{{ __('Registrar-se') }}</a>
-                            </li>
-                    </ul>
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">pro sidebar</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
                 </div>
-                @endif
-            @else
-                <div class="sidebar-content">
-                    <div class="sidebar-brand">
-                        <a href="#">pro sidebar</a>
-                        <div id="close-sidebar">
-                            <i class="fas fa-times"></i>
-                        </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded"
+                            src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                            alt="User picture">
                     </div>
-                    <div class="sidebar-header">
-                        <div class="user-pic">
-                            <img class="img-responsive img-rounded"
-                                src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                                alt="User picture">
-                        </div>
-                        <div class="user-info">
-                            {{-- <span class="user-name"> {{ Auth::user()->name }} <span class="caret"></span>
+                    <div class="user-info">
+                        {{-- <span class="user-name"> {{ Auth::user()->name }} <span class="caret"></span>
                         </span> --}}
-                            <span class="user-role">Administrator</span>
-                            <span class="user-status">
-                                <i class="fa fa-circle"></i>
-                                <span>Online</span>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();" class="text-muted">Sair</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                </form>
-                            </span>
-                        </div>
+                        <span class="user-role">Administrator</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"
+                                class="text-muted">Sair</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </span>
                     </div>
-                    <!-- sidebar-header  -->
-                    <div class="sidebar-search">
-                        <div>
-                            <div class="input-group">
-                                <input type="text" class="form-control search-menu" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </span>
-                                </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search...">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <!-- sidebar-search  -->
-                    <div class="sidebar-menu">
-                        <ul>
-                            <li class="header-menu">
-                                <span>General</span>
-                            </li>
-                            <li class="sidebar-menu">
-                                <a href="{{ route('admin.questions') }}">
-                                    <i class="fa fa-tachometer-alt"></i>
-                                    <span>Perguntas</span>
-                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
-                                </a>
-                            </li>
-                            <li class="sidebar-menu">
-                                <a href="{{ route('admin.classifications') }}">
-                                    <i class="fa fa-tachometer-alt"></i>
-                                    <span>Classficacações</span>
-                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
-                                </a>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="far fa-gem"></i>
-                                    <span>Components</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="#">General</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Panels</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Tables</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Icons</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Forms</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="fa fa-chart-line"></i>
-                                    <span>Charts</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Pie chart</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Line chart</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Bar chart</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Histogram</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="sidebar-dropdown">
-                                <a href="#">
-                                    <i class="fa fa-globe"></i>
-                                    <span>Maps</span>
-                                </a>
-                                <div class="sidebar-submenu">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Google maps</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Open street map</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="header-menu">
-                                <span>Extra</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-book"></i>
-                                    <span>Documentation</span>
-                                    <span class="badge badge-pill badge-primary">Beta</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-calendar"></i>
-                                    <span>Calendar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-folder"></i>
-                                    <span>Examples</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- sidebar-menu  -->
                 </div>
-            
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li class="sidebar-menu">
+                            <a href="{{ route('admin.questions') }}">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Perguntas</span>
+                                {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                            </a>
+                        </li>
+                        <li class="sidebar-menu">
+                            <a href="{{ route('admin.classifications') }}">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Classficacações</span>
+                                {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="far fa-gem"></i>
+                                <span>Components</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">General</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Panels</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Tables</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Icons</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Forms</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-chart-line"></i>
+                                <span>Charts</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Pie chart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Line chart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bar chart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Histogram</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-globe"></i>
+                                <span>Maps</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Google maps</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Open street map</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="header-menu">
+                            <span>Extra</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>Documentation</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-folder"></i>
+                                <span>Examples</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
                 <a href="#">
@@ -727,13 +708,13 @@
                     <span class="badge-sonar"></span>
                 </a>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();" class="text-muted"> <i
+                                    document.getElementById('logout-form').submit();" class="text-muted"> <i
                         class="fa fa-power-off"></i></a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
             </div>
-            @endguest
+
         </nav>
         <!-- sidebar-wrapper  -->
         <main class="page-content">

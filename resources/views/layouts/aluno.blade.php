@@ -1,20 +1,15 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -557,9 +552,9 @@
                                 <a class="nav-link text-white px-4"
                                     href="{{ route('register') }}">{{ __('Registrar-se') }}</a>
                             </li>
+                        @endif
                     </ul>
                 </div>
-                @endif
             @else
                 <div class="sidebar-content">
                     <div class="sidebar-brand">
@@ -581,7 +576,8 @@
                                 <i class="fa fa-circle"></i>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();" class="text-muted"><br>Sair</a>
+                                                    document.getElementById('logout-form').submit();"
+                                    class="text-muted"><br>Sair</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 </form>
@@ -589,33 +585,33 @@
                         </div>
                     </div>
                     <!-- sidebar-header  -->
- 
+
                     <!-- sidebar-search  -->
-                    
+
                     <!-- sidebar-menu  -->
                 </div>
-            
-            <!-- sidebar-content  -->
-            <div class="sidebar-footer">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-warning notification">3</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span class="badge badge-pill badge-success notification">7</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-cog"></i>
-                    <span class="badge-sonar"></span>
-                </a>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();" class="text-muted"> <i
-                        class="fa fa-power-off"></i></a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                </form>
-            </div>
+
+                <!-- sidebar-content  -->
+                <div class="sidebar-footer">
+                    <a href="#">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-pill badge-warning notification">3</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-envelope"></i>
+                        <span class="badge badge-pill badge-success notification">7</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span class="badge-sonar"></span>
+                    </a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();" class="text-muted"> <i
+                            class="fa fa-power-off"></i></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                </div>
             @endguest
         </nav>
         <!-- sidebar-wrapper  -->

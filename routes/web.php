@@ -31,10 +31,7 @@ Route::prefix('admin')
     Route::post('/perguntas/save/{id}', 'App\Http\Controllers\Admin\QuestionController@update')->name('admin.questions.save');
     Route::post('/perguntas/delete/{id}', 'App\Http\Controllers\Admin\QuestionController@destroy')->name('admin.questions.delete');
 });
-Route::prefix('client')
-->middleware(['auth:sanctum', 'role:client'])
-->group(function () {
-    Route::get('/', 'App\Http\Controllers\HomeController@index')->name('client.home');
+    Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home'); 
     Route::get('/disciplina', 'App\Http\Controllers\AnswerController@disciplina')->name('answer.disciplina');
 
     Route::get('/metodologia', 'App\Http\Controllers\AnswerController@metodologia')->name('answer.metodologia');
@@ -54,7 +51,6 @@ Route::prefix('client')
             $m->to('alini.canedo@gmail.com');
         });
     });
-});
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+
 Auth::routes(); 
 

@@ -29,7 +29,7 @@
         @endforeach
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-primary">Finalizar</button>
+                <button type="submit" class="btn btn-primary">Responder</button>
             </div>
         </div>
     </form>

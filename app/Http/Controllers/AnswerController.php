@@ -83,7 +83,7 @@ class AnswerController extends Controller
 
         $data = new Answer();
         $data->matricula_id = Auth::user()->id;
-        $data->nao_sabe = $request->nao_sabe;
+/*         $data->nao_sabe = $request->nao_sabe; */
         $data->save();
         $data->questions()->sync($request->value_id);
         Alert::success('Sucesso', 'Obrigado por nos avaliar!');

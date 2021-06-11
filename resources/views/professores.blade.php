@@ -24,15 +24,12 @@
                         <label for="nao_aplica_{{ $data->id }}">Não se aplica</label>
                     </div>
                 </div>
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="{{$data->tooltip}}">
-                    Tooltip na parte superior
-                  </button>
                 <hr>
             @endif
         @endforeach
         <div class="row">
             <div class="col">
-                <a href="{{ route('answer.coordenacao') }}" class="btn btn-primary">Próxima</a>
+                <button type="submit" class="btn btn-primary">Responder</button>
             </div>
         </div>
     </form>

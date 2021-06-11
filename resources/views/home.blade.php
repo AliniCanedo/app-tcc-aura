@@ -11,7 +11,10 @@
                 </p>
             </div>
         </div>
-        <div class="col-md-12">
-            <a href="{{ route('answer.disciplina') }}" class="btn btn-primary">Iniciar a pesquisa</a>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Aqui você poderá avaliar nossa instituição de ensino.</p>
+                <p>Escolha um tema ao lado para responder</p>
+            </div>
         </div>
     @endsection

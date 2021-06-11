@@ -558,7 +558,7 @@
             @else
                 <div class="sidebar-content">
                     <div class="sidebar-brand">
-                        <a href="#">pro sidebar</a>
+                        <a href="/"><i class="fas fa-home"></i> Home</a>
                         <div id="close-sidebar">
                             <i class="fas fa-times"></i>
                         </div>
@@ -584,17 +584,83 @@
                             </span>
                         </div>
                     </div>
-                    <!-- sidebar-header  -->
-
-                    <!-- sidebar-search  -->
-
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="header-menu">
+                                <span>Perguntas Disponíveis para responder</span>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.disciplina') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Disciplina</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.metodologia') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Metodologia de Ensino (Aura)</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.professores') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Professores</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.curso') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Curso ADS</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.coordenacao') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Coordenação do Curso</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.curso-atividade') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Cursos e Atividades de Extensão</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.intercambio') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span>Intercâmbio</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.estagiotccprojeto') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span> Estágio, TCC e Projeto  Integrador</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                            <li class="sidebar-menu">
+                                <a href="{{ route('answer.infra') }}">
+                                    <i class="fa fa-tachometer-alt"></i>
+                                    <span> Infraestrutura</span>
+                                    {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <!-- sidebar-menu  -->
                 </div>
 
                 <!-- sidebar-content  -->
                 <div class="sidebar-footer">
                     <a href="#">
-                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-bell" data-bs-toggle="tooltip" data-bs-placement="top" title="Você poderá responder a cada tema uma vez por mês."></i>
                         <span class="badge badge-pill badge-warning notification">3</span>
                     </a>
                     <a href="#">

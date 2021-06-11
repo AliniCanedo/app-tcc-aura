@@ -27,7 +27,7 @@
         @endforeach
         <div class="row">
             <div class="col">
-                <a href="{{ route('answer.infra') }}" class="btn btn-primary">Próxima</a>
+                <button type="submit" class="btn btn-primary">Responder</button>
             </div>
         </div>
     </form>

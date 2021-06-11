@@ -7,9 +7,9 @@
         @foreach ($data as $data)
             @if ($data->modelo->id === 2 && $data->classifications->id === 8)
                 <h5>{{ $data->classifications->description }}</h5>
-                <p>{{ $data->description }} <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
+                <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
                 <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
-                    data-flex-maxlabel="Concordo Totalmente" class="nps ff-rating" data-toggle="tooltip" data-placement="bottom" title="{{$data->tooltip}}">
+                    data-flex-maxlabel="Concordo Totalmente" class="nps ff-rating" required/>
                     <div class="row">
                         <div class="col">
                             <input type="radio" value="Não sabe responder" name="nao_sabe[]" id="nao_sabe_{{$data->id}}" class="ff-rating" />

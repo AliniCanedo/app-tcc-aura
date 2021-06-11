@@ -10,8 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css"
+        integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 
@@ -576,7 +579,7 @@
                                 <i class="fa fa-circle"></i>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();"
+                                                        document.getElementById('logout-form').submit();"
                                     class="text-muted"><br>Sair</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
@@ -641,7 +644,7 @@
                             <li class="sidebar-menu">
                                 <a href="{{ route('answer.estagiotccprojeto') }}">
                                     <i class="fa fa-tachometer-alt"></i>
-                                    <span> Estágio, TCC e Projeto  Integrador</span>
+                                    <span> Estágio, TCC e Projeto Integrador</span>
                                     {{-- <span class="badge badge-pill badge-warning">New</span> --}}
                                 </a>
                             </li>
@@ -660,11 +663,13 @@
                 <!-- sidebar-content  -->
                 <div class="sidebar-footer">
                     <a href="#">
-                        <i class="fa fa-bell" data-bs-toggle="tooltip" data-bs-placement="top" title="Você poderá responder a cada tema uma vez por mês."></i>
+                        <i class="fa fa-bell" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Você poderá responder a cada tema uma vez por mês."></i>
                         <span class="badge badge-pill badge-warning notification">3</span>
                     </a>
                     <a href="#">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-envelope" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Confira seu e-mail, todo mês enviaremos um questionário!"></i>
                         <span class="badge badge-pill badge-success notification">7</span>
                     </a>
                     <a href="#">
@@ -672,7 +677,7 @@
                         <span class="badge-sonar"></span>
                     </a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();" class="text-muted"> <i
+                                                document.getElementById('logout-form').submit();" class="text-muted"> <i
                             class="fa fa-power-off"></i></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf

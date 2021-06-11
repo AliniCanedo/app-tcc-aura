@@ -20,6 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->unsignedBigInteger('id_modelo');
             $table->foreign('id_modelo')->references('id')->on('modelos')->onDelete('cascade');
             $table->string('description');
+            $table->text('tooltip');
             $table->timestamps();
         });
     }

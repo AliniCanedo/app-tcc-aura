@@ -13,6 +13,7 @@ class Question extends Model
         'id_classification',
         'id_modelo',
         'description',
+        'tooltip'
     ];
 
     public function classifications()

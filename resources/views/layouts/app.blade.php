@@ -28,6 +28,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
+  /*       @media (min-width: 500px) {
+            .toggled {
+                display: none !important;
+            }
+        } */
         @keyframes swing {
             0% {
                 transform: rotate(0deg);
@@ -768,15 +773,18 @@
                         .addClass("active");
                 }
             });
-
             $("#close-sidebar").click(function() {
-                $(".page-wrapper").removeClass("toggled");
+                if(window.width() <= 750) {
+                    $(".page-wrapper").removeClass("toggled");
+                }
+             
             });
             $("#show-sidebar").click(function() {
                 $(".page-wrapper").addClass("toggled");
             });
-        });
-
+            if ($(window).width() < 550) {
+            $(".page-wrapper").removeClass("toggled");
+            }
     </script>
 </body>
 

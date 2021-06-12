@@ -737,13 +737,18 @@
                         .addClass("active");
                 }
             });
-
             $("#close-sidebar").click(function() {
-                $(".page-wrapper").removeClass("toggled");
+                if(window.width() <= 750) {
+                    $(".page-wrapper").removeClass("toggled");
+                }
+             
             });
             $("#show-sidebar").click(function() {
                 $(".page-wrapper").addClass("toggled");
             });
+            if ($(window).width() < 550) {
+            $(".page-wrapper").removeClass("toggled");
+            }
         });
 
     </script>

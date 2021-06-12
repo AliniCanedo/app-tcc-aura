@@ -20,7 +20,6 @@
                         </div>
                     @enderror
                 </div>
-
                 <div class="col-md-12 mt-3">
                     <select class="form-select @error('id_modelo') is-invalid @enderror" name="id_modelo" id="id_modelo">
                         <option value="" {{ empty(old('id_modelo', $data->modelo)) ? 'selected' : '' }}>Selecione um
@@ -36,7 +35,6 @@
                         </div>
                     @enderror
                 </div>
-
                 <div class="col-md-12 mt-3">
                     <select class="form-select" name="id_classification" id="id_classification">
                         <option value="" {{ empty(old('id_classification', $data->id)) ? 'selected' : '' }}>Selecione uma

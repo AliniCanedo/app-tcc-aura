@@ -590,7 +590,7 @@
                     <div class="sidebar-menu">
                         <ul>
                             <li class="header-menu">
-                                <span>Perguntas Disponíveis para responder</span>
+                                <span>Perguntas Disponíveis para Responder</span>
                             </li>
                             <li class="sidebar-menu">
                                 <a href="{{ route('answer.disciplina') }}">

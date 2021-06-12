@@ -7,27 +7,25 @@
         @foreach ($data as $data)
             @if ($data->modelo->id === 2 && $data->classifications->id === 7)
                 <h5>{{ $data->classifications->description }}</h5>
-                <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
-                <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
-                    data-flex-maxlabel="Concordo Totalmente" class="nps ff-rating" required/>
+                <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-danger-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
                 <div class="row">
-                    <div class="col">
-                        <input type="radio" value="Não sabe responder" name="nao_sabe[]" id="nao_sabe_{{ $data->id }}"
-                            class="ff-rating" />
-                        <label for="nao_sabe_{{ $data->id }}">Não sabe esponder</label>
+                    <div class="col d-flex mb-5">
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-success text-black px-4 mx-1"><span>10</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-success text-black px-4 mx-1"><span>9</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-warning text-black px-4 mx-1"><span>8</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-warning text-black px-4 mx-1"><span>7</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-danger text-black px-4 mx-1"><span>6</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-danger text-black px-4 mx-1"><span>5</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-danger text-black px-4 mx-1"><span>4</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-danger text-black px-4 mx-1"><span>3</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-danger text-black px-4 mx-1"><span>2</span></a>
+                        <a href="#" name="value_id" id="myAnchor" class="btn btn-danger text-black px-4 mx-1"><span>1</span></a>
                     </div>
+                    <hr>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <input type="radio" value="Não sabe responder" name="nao_aplica[]"
-                            id="nao_aplica_{{ $data->id }}" class="ff-rating" />
-                        <label for="nao_aplica_{{ $data->id }}">Não se aplica</label>
-                    </div>
-                </div>
-                <hr>
             @endif
         @endforeach
-        <div class="row">
+        <div class="row mt-4">
             <div class="col">
                 <button type="submit" class="btn btn-primary">Responder</button>
             </div>
@@ -35,21 +33,15 @@
     </form>
 @endsection
 @section('css-includes')
-    <link rel="stylesheet" href="{{ asset('css/ffrating.css') }}">
+@endsection
+@section('css')
 @endsection
 @section('javacript-includes')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/ffrating.js') }}" defer></script>
 @endsection
 @section('javascript')
     <script>
-        $(document).ready(function() {
-            $('.nps').ffrating({
-                isStar: true,
-                min: 1,
-                max: 10
-            });
+        document.getElementById("myAnchor").addEventListener("click", function(event){
+            event.preventDefault()
         });
-
     </script>
 @endsection

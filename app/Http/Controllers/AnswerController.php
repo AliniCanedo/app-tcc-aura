@@ -79,21 +79,21 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         $data = new Answer();
+       
         $rules = [];
         $rules['value_id'] = 'required';
   
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'Existem campos com problemas de preenchimento: ' . $validator->errors()->first() . ' Verifique e tente novamente!');
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
- 
+
         $data->matricula_id = Auth::user()->id;
-/*         $data->description = $request->description; */
         $data->save();
         $data->questions()->sync($request->value_id);
         Alert::success('Sucesso', 'Obrigado por nos avaliar!');
-        return view('home');
+        return redirect()->route('home');
     }    
 }

@@ -547,12 +547,12 @@
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-                <div class="sidebar-brand">
-                    <a href="#">pro sidebar</a>
-                    <div id="close-sidebar">
-                        <i class="fas fa-times"></i>
+                     <div class="sidebar-brand">
+                        <a href="/"><i class="fas fa-home"></i> Home</a>
+                        <div id="close-sidebar">
+                            <i class="fas fa-times"></i>
+                        </div>
                     </div>
-                </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
                         <img class="img-responsive img-rounded"
@@ -608,7 +608,14 @@
                                 {{-- <span class="badge badge-pill badge-warning">New</span> --}}
                             </a>
                         </li>
-                        <li class="sidebar-dropdown">
+                        <li class="sidebar-menu">
+                            <a href="{{ route('admin.users') }}">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Usuários</span>
+                                {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                            </a>
+                        </li>
+                    {{--     <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="far fa-gem"></i>
                                 <span>Components</span>
@@ -632,8 +639,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="sidebar-dropdown">
+                        </li> --}}
+                        {{-- <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-chart-line"></i>
                                 <span>Charts</span>
@@ -654,8 +661,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="sidebar-dropdown">
+                        </li> --}}
+                      {{--   <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-globe"></i>
                                 <span>Maps</span>
@@ -670,29 +677,29 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="header-menu">
+                        </li> --}}
+                  {{--       <li class="header-menu">
                             <span>Extra</span>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="#">
                                 <i class="fa fa-book"></i>
-                                <span>Documentation</span>
+                                <span>Documentação</span>
                                 <span class="badge badge-pill badge-primary">Beta</span>
                             </a>
                         </li>
-                        <li>
+           {{--              <li>
                             <a href="#">
                                 <i class="fa fa-calendar"></i>
                                 <span>Calendar</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> --}}
+           {{--              <li>
                             <a href="#">
                                 <i class="fa fa-folder"></i>
                                 <span>Examples</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!-- sidebar-menu  -->
@@ -737,21 +744,22 @@
         <!-- page-content" -->
     </div>
     <!-- page-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    </script>
     @include('sweetalert::alert')
     @yield('javacript-includes', '')
     @yield('javascript', '')
     @yield('css-includes', '')
     @yield('css', '')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+ 
     <script>
         jQuery(function($) {
-
             $(".sidebar-dropdown > a").click(function() {
                 $(".sidebar-submenu").slideUp(200);
                 if (
@@ -773,18 +781,17 @@
                         .addClass("active");
                 }
             });
-            $("#close-sidebar").click(function() {
-                if(window.width() <= 750) {
-                    $(".page-wrapper").removeClass("toggled");
-                }
-             
-            });
-            $("#show-sidebar").click(function() {
-                $(".page-wrapper").addClass("toggled");
-            });
-            if ($(window).width() < 550) {
-            $(".page-wrapper").removeClass("toggled");
+        $("#close-sidebar").click(function() {
+            if(window.width() <= 750) {
+                $(".page-wrapper").removeClass("toggled");
             }
+        });
+        $("#show-sidebar").click(function() {
+            $(".page-wrapper").addClass("toggled");
+        });
+        if ($(window).width() < 550) {
+            $(".page-wrapper").removeClass("toggled");
+        }});
     </script>
 </body>
 

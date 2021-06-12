@@ -44,9 +44,9 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Matricula') }}</label>
 
                             <div class="col-md-6">
-                                <input id="matricula" type="text"
+                                <input id="matricula" type="number"
                                     class="form-control @error('matricula') is-invalid @enderror" name="matricula"
-                                    value="{{ old('matricula') }}" required autocomplete="matricula" autofocus>
+                                    value="{{ old('matricula') }}" required autocomplete="matricula" autofocus required>
 
                                 @error('matricula')
                                     <span class="invalid-feedback" role="alert">
@@ -61,9 +61,9 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Periodo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="periodo" type="text" class="form-control @error('periodo') is-invalid @enderror"
+                                <input id="periodo" type="number" class="form-control @error('periodo') is-invalid @enderror"
                                     name="periodo" value="{{ old('periodo') }}" required autocomplete="periodo"
-                                    autofocus>
+                                    autofocus required>
 
                                 @error('periodo')
                                     <span class="invalid-feedback" role="alert">

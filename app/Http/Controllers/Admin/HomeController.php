@@ -11,9 +11,6 @@ class HomeController extends Controller
     public function index()
     {
         $data = Question::with('classifications', 'modelo');
-
         return view('admin.home', compact('data',));
     }
-
-
 }

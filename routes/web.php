@@ -69,11 +69,21 @@ Route::prefix('admin')
     Route::post('/disciplina', 'App\Http\Controllers\AnswerController@store')->name('client.store');
 
     
-    Route::get('/mail', function() {
-        Mail::send('mail.agradecimento', ['Aura' => 'Obrigado por responder a nossa pesquisa!'], function ($m){
-            $m->from('alini.canedo@gmail.com');
-            $m->to('alini.canedo@gmail.com');
-        });
+    Route::get('/email', function() {
+        return new \App\Mail\agradecimento();
+    });
+
+    Route::get('/enviando-email', function() {
+        $email = new \App\Mail\agradecimento();
+
+        $user = (object)[
+            'email' => 'alini.canedo@gmail.com',
+            'name' => 'Alini'
+        ];
+
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+
+        return 'E-mail enviado';
     });
 
 Auth::routes(); 

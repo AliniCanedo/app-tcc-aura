@@ -90,7 +90,7 @@ class ModelanswerController extends Controller
       else {
           $data = Modelo::findOrFail($id);
       }
-      return view('admin.classification', compact('data'));
+      return view('admin.models', compact('data'));
   }
 
   /**

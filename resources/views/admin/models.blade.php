@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'Listar Classificações')
+@section('title', 'Listar Modelo de Resposta')
 
 @section('content')
 <div class="row">
     <div class="col">
-        <a href="{{ route('admin.models.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="bi bi-plus"></i> Novo Modelo de Resposta</a>
+        <a href="{{ route('admin.models.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="bi bi-plus"></i> Novo Modelo</a>
     </div>
 </div>
 <div class="row">

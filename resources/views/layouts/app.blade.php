@@ -103,7 +103,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.documentations')}}">
                                 <i class="fa fa-book"></i>
                                 <span>Documentação</span>
                                 <span class="badge badge-pill bg-primary">Beta</span>

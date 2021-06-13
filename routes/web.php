@@ -31,12 +31,19 @@ Route::prefix('admin')
     Route::post('/perguntas/save/{id}', 'App\Http\Controllers\Admin\QuestionController@update')->name('admin.questions.save');
     Route::post('/perguntas/delete/{id}', 'App\Http\Controllers\Admin\QuestionController@destroy')->name('admin.questions.delete');
 
-    // PERGUNTAS
+    // Usuários
     Route::get('/usuarios', 'App\Http\Controllers\Admin\UserController@index')->name('admin.users');
     Route::get('/usuarios/list', 'App\Http\Controllers\Admin\UserController@list')->name('admin.users.list');
     Route::get('/usuarios/edit/{id}', 'App\Http\Controllers\Admin\UserController@edit')->name('admin.users.edit');
     Route::post('/usuarios/save/{id}', 'App\Http\Controllers\Admin\UserController@update')->name('admin.users.save');
     Route::post('/usuarios/delete/{id}', 'App\Http\Controllers\Admin\UserController@destroy')->name('admin.users.delete');
+
+    // DOCUMENTOS
+    Route::get('/documentacao', 'App\Http\Controllers\Admin\DocumentationController@index')->name('admin.documentations');
+    Route::get('/documentacao/list', 'App\Http\Controllers\Admin\DocumentationController@list')->name('admin.documentations.list');
+    Route::get('/documentacao/edit/{id}', 'App\Http\Controllers\Admin\DocumentationController@edit')->name('admin.documentations.edit');
+    Route::post('/documentacao/save/{id}', 'App\Http\Controllers\Admin\DocumentationController@update')->name('admin.documentations.save');
+    Route::post('/documentacao/delete/{id}', 'App\Http\Controllers\Admin\DocumentationController@destroy')->name('admin.documentations.delete');
 });
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home'); 
     Route::get('/disciplina', 'App\Http\Controllers\AnswerController@disciplina')->name('answer.disciplina');

@@ -65,24 +65,11 @@
                         </span>
                     </div>
                 </div>
-                <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search...">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- sidebar-search  -->
+
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>General</span>
+                            <span>Geral</span>
                         </li>
                         <li class="sidebar-menu">
                             <a href="{{ route('admin.questions') }}">
@@ -119,7 +106,7 @@
                             <a href="#">
                                 <i class="fa fa-book"></i>
                                 <span>Documentação</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                                <span class="badge badge-pill bg-primary">Beta</span>
                             </a>
                         </li>
 
@@ -204,17 +191,17 @@
                         .addClass("active");
                 }
             });
-        $("#close-sidebar").click(function() {
-            if(window.width() <= 750) {
+            $("#close-sidebar").click(function() {
+                if(window.width() <= 750) {
+                    $(".page-wrapper").removeClass("toggled");
+                }
+            });
+            $("#show-sidebar").click(function() {
+                $(".page-wrapper").addClass("toggled");
+            });
+            if ($(window).width() < 550) {
                 $(".page-wrapper").removeClass("toggled");
-            }
-        });
-        $("#show-sidebar").click(function() {
-            $(".page-wrapper").addClass("toggled");
-        });
-        if ($(window).width() < 550) {
-            $(".page-wrapper").removeClass("toggled");
-        }});
+            }});
     </script>
 </body>
 

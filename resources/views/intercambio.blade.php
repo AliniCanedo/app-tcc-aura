@@ -10,19 +10,8 @@
                 <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-danger-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
                 <div class="row">
                     <div class="col d-flex mb-5">
-{{--                         <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-success text-black px-4 mx-1" value="10"><span>10</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-success text-black px-4 mx-1" value="9"><span>9</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-warning text-black px-4 mx-1" value="8"><span>8</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-warning text-black px-4 mx-1" value="7"><span>7</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-danger text-black px-4 mx-1" value="6"><span>6</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-danger text-black px-4 mx-1" value="5"><span>5</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-danger text-black px-4 mx-1" value="4"><span>4</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-danger text-black px-4 mx-1" value="3"><span>3</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-danger text-black px-4 mx-1" value="2"><span>2</span></a>
-                        <a href="#" type="checkbox" name="value_id[]_{{$data->id}}" id="value_id_{{$data->id}}" class="btn btn-danger text-black px-4 mx-1" value="1"><span>1</span></a> --}}
-                            <input type="checkbox" name="value_id" value="1">1
-                            <input type="checkbox" name="value_id" value="2">2
-                            <input type="checkbox" name="value_id" value="3">3
+                        <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
+                        data-flex-maxlabel="Concordo Totalmente" class="nps ff-rating" required>
                     </div>
                     <hr>
                 </div>
@@ -36,15 +25,21 @@
     </form>
 @endsection
 @section('css-includes')
-@endsection
-@section('css')
+    <link rel="stylesheet" href="{{ asset('css/ffrating.css') }}">
 @endsection
 @section('javacript-includes')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/ffrating.js') }}" defer></script>
 @endsection
 @section('javascript')
     <script>
-        document.getElementById("value_id").addEventListener("click", function(event){
-            event.preventDefault()
+        $(document).ready(function() {
+            $('.nps').ffrating({
+                isStar: false,
+                min: 1,
+                max: 10
+            });
         });
+
     </script>
 @endsection

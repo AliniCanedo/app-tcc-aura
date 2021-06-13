@@ -17,14 +17,14 @@
                     @enderror
                 <div class="row">
                     <div class="col">
-                        <input type="radio" value="Não sabe responder" name="nao_sabe[]" id="nao_sabe_{{ $data->id }}"
+                        <input type="checkbox" value="Não sabe responder" name="nao_sabe[]" id="nao_sabe_{{ $data->id }}"
                             class="ff-rating" />
                         <label for="nao_sabe_{{ $data->id }}">Não sabe Responder</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="radio" value="Não sabe responder" name="nao_aplica[]"
+                        <input type="checkbox" value="Não sabe responder" name="nao_aplica[]"
                             id="nao_aplica_{{ $data->id }}" class="ff-rating" />
                         <label for="nao_aplica_{{ $data->id }}">Não se Aplica</label>
                     </div>

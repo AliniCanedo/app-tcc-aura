@@ -16,14 +16,17 @@ use Illuminate\Support\Facades\Auth;
 Route::prefix('admin')
 ->middleware(['auth:sanctum', 'role:admin'])
 ->group(function () {
+
     // HOME
     Route::get('/', 'App\Http\Controllers\Admin\HomeController@index')->name('admin.home');
+
     // CLASSIFICAÇÕES
     Route::get('/classificacoes', 'App\Http\Controllers\Admin\ClassificationController@index')->name('admin.classifications');
     Route::get('/classificacoes/list', 'App\Http\Controllers\Admin\ClassificationController@list')->name('admin.classifications.list');
     Route::get('/classificacoes/edit/{id}', 'App\Http\Controllers\Admin\ClassificationController@edit')->name('admin.classifications.edit');
     Route::post('/classificacoes/save/{id}', 'App\Http\Controllers\Admin\ClassificationController@update')->name('admin.classifications.save');
     Route::post('/classificacoes/delete/{id}', 'App\Http\Controllers\Admin\ClassificationController@destroy')->name('admin.classifications.delete');
+
     // PERGUNTAS
     Route::get('/perguntas', 'App\Http\Controllers\Admin\QuestionController@index')->name('admin.questions');
     Route::get('/perguntas/list', 'App\Http\Controllers\Admin\QuestionController@list')->name('admin.questions.list');
@@ -31,12 +34,19 @@ Route::prefix('admin')
     Route::post('/perguntas/save/{id}', 'App\Http\Controllers\Admin\QuestionController@update')->name('admin.questions.save');
     Route::post('/perguntas/delete/{id}', 'App\Http\Controllers\Admin\QuestionController@destroy')->name('admin.questions.delete');
 
-    // Usuários
+    // USUÁRIOS
     Route::get('/usuarios', 'App\Http\Controllers\Admin\UserController@index')->name('admin.users');
     Route::get('/usuarios/list', 'App\Http\Controllers\Admin\UserController@list')->name('admin.users.list');
     Route::get('/usuarios/edit/{id}', 'App\Http\Controllers\Admin\UserController@edit')->name('admin.users.edit');
     Route::post('/usuarios/save/{id}', 'App\Http\Controllers\Admin\UserController@update')->name('admin.users.save');
     Route::post('/usuarios/delete/{id}', 'App\Http\Controllers\Admin\UserController@destroy')->name('admin.users.delete');
+
+    // MODELO DE RESRPOSTAS
+    Route::get('/modelo-de-resposta', 'App\Http\Controllers\Admin\ModelanswerController@index')->name('admin.models');
+    Route::get('/modelo-de-resposta/list', 'App\Http\Controllers\Admin\ModelanswerController@list')->name('admin.models.list');
+    Route::get('/modelo-de-resposta/edit/{id}', 'App\Http\Controllers\Admin\ModelanswerController@edit')->name('admin.models.edit');
+    Route::post('/modelo-de-resposta/save/{id}', 'App\Http\Controllers\Admin\ModelanswerController@update')->name('admin.models.save');
+    Route::post('/modelo-de-resposta/delete/{id}', 'App\Http\Controllers\Admin\ModelanswerController@destroy')->name('admin.models.delete');
 
     // DOCUMENTOS
     Route::get('/documentacao', 'App\Http\Controllers\Admin\DocumentationController@index')->name('admin.documentations');

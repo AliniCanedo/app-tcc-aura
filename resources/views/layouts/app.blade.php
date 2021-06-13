@@ -609,6 +609,13 @@
                             </a>
                         </li>
                         <li class="sidebar-menu">
+                            <a href="{{ route('admin.models') }}">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Modelo de Resposta</span>
+                                {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                            </a>
+                        </li>
+                        <li class="sidebar-menu">
                             <a href="{{ route('admin.users') }}">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Usuários</span>

@@ -79,7 +79,7 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         $data = new Answer();
-       
+      /*  dd($request->all()); */
         $rules = [];
         $rules['value_id'] = 'required';
   
@@ -89,7 +89,7 @@ class AnswerController extends Controller
             Alert::warning('Atenção', 'É necessário escolher uma opção!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        
         $data->matricula_id = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);

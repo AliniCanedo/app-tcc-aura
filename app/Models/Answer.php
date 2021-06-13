@@ -10,9 +10,7 @@ class Answer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_matricula', 
-        'nao_sabe', 
-        'nao_aplica'
+        'id_matricula',
     ];
 
     public function questions()

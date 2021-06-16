@@ -76,6 +76,7 @@ Route::prefix('admin')
     Route::get('/enviando-email', function() {
         $email = new \App\Mail\agradecimento();
 
+        $email->subject = 'Pesquisa de Satisfação AURA';
         $user = (object)[
             'email' => 'alini.canedo@gmail.com',
             'name' => 'Alini'

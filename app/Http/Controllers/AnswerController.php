@@ -93,6 +93,12 @@ class AnswerController extends Controller
         $data->matricula_id = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
         Alert::success('Sucesso', 'Obrigado por nos avaliar!');
         return redirect()->route('home');
     }    

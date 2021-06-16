@@ -11,7 +11,6 @@
 
   <p>Sua resposta nos ajuda a melhorar nossos serviços!</p>
 
-
-  <p>Um abraço,<p>
+   <p>Um abraço,<p>
 </body>
 </html>

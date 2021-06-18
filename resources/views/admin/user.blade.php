@@ -68,7 +68,7 @@
                     <div class="col-md-12 mb-3">
                         <div class="form-floating">
                             <select class="form-select @error('type') is-invalid @enderror" id="type" name="type" value="{{ old('type')}}" required>
-                                <option selected>Selecione uma Opção</option>
+                                <option value="">Selecione uma Opção</option>
                                 <option value="admin">Administrador</option>
                                 <option value="client">Aluno</option>
                             </select>

@@ -4,8 +4,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <a href="{{ route('admin.users.edit', 'new') }}" class="btn btn-primary float-md-end"><i
-                    class="bi bi-plus"></i> Novao Usuario</a>
+            <a href="{{ route('admin.users.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="bi bi-plus"></i> Novo Usuario</a>
         </div>
     </div>
     <div class="row">

@@ -35,11 +35,10 @@
     <script>
         $(document).ready(function() {
             $('.nps').ffrating({
-                isStar: false,
+                isStar: true,
                 min: 1,
                 max: 10
             });
         });
-
     </script>
 @endsection

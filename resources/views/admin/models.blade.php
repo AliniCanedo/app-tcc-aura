@@ -2,11 +2,11 @@
 @section('title', 'Listar Modelo de Resposta')
 
 @section('content')
-<div class="row">
+{{-- <div class="row">
     <div class="col">
         <a href="{{ route('admin.models.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="bi bi-plus"></i> Novo Modelo</a>
     </div>
-</div>
+</div> --}}
 <div class="row">
     <div class="col">
         <div class="table-responsive table-data-tables">

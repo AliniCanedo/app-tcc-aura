@@ -116,6 +116,7 @@ class QuestionController extends Controller
 
       $rules = [];
       $rules['description'] = 'required';
+      $rules['tooltip'] = 'required';
       $rules['id_classification'] = 'required';
       $rules['id_modelo'] = 'required';
 
@@ -126,6 +127,7 @@ class QuestionController extends Controller
           return redirect()->back()->withErrors($validator)->withInput();
       }
       $data->description = $request->description;
+      $data->tooltip = $request->tooltip;
       $data->id_classification = $request->id_classification;
       $data->id_modelo = $request->id_modelo;
       

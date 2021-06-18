@@ -20,6 +20,20 @@
                         </div>
                     @enderror
                 </div>
+
+                <div class="col-md-12 mt-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control @error('tooltip') is-invalid @enderror"
+                            name="tooltip" id="tooltip" placeholder="Descrição" value="{{ $data->tooltip }}">
+                        <label for="tooltip">Tooltip</label>
+                    </div>
+                    @error('tooltip')
+                        <div class="text-danger mt-1">
+                            <small>{{ $message }}</small>
+                        </div>
+                    @enderror
+                </div>
+
                 <div class="col-md-12 mt-3">
                     <select class="form-select @error('id_modelo') is-invalid @enderror" name="id_modelo" id="id_modelo">
                         <option value="" {{ empty(old('id_modelo', $data->modelo)) ? 'selected' : '' }}>Selecione um

@@ -2,11 +2,11 @@
 @section('title', 'Listar Modelos de Documento')
 
 @section('content')
-<div class="row">
+{{-- <div class="row">
     <div class="col">
         <a href="{{ route('admin.documentations.edit', 'new') }}" class="btn btn-primary float-md-end"><i class="fas fa-plus"></i> Novo Documento</a>
     </div>
-</div>
+</div> --}}
 <div class="row">
     <div class="col">
         <div class="table-responsive table-data-tables">

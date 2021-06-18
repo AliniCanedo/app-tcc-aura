@@ -47,12 +47,12 @@
                         <i class="bi bi-arrow-left-short"></i>
                         Cancelar
                     </a>
-                    @if ($data->id > 0)
+{{--                     @if ($data->id > 0)
                         <a href="#" class="btn btn-danger mb-1" id="btn-delete">
                             <i class="bi bi-trash"></i>
                             Remover?
                         </a>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </form>
@@ -70,7 +70,8 @@
 <link rel="stylesheet" href="{{ asset('css/admin/summernote-bs4.min.css') }}">
 @endsection
 @section('javacript-includes')
-<script src="{{ asset('js/admin/summernote-bs4.min.js') }}"></script>
+@include('admin.includes.form-utils')
+<script src="{{ asset('js/summernote-bs4.min.js') }}"></script>
 @endsection
 @section('javascript')
 <script>

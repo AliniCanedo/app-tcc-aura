@@ -90,7 +90,7 @@ class AnswerController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         
-        $data->matricula_id = Auth::user()->id;
+        $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
         $email = new \App\Mail\agradecimento(

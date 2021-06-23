@@ -28,6 +28,6 @@ class Question extends Model
 
     public function answers()
     {
-        return $this->belongsToMany(Answer::class, 'answers_questions', 'question_id', 'answer_id');
+        return $this->belongsToMany(Answer::class, 'answers_questions', 'question_id', 'answer_id')->withPivot(['nao_sabe','question_id','answer_id']);;
     }
 }

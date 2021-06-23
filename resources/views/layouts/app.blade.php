@@ -95,6 +95,14 @@
                         </li>
 
                         <li class="sidebar-menu">
+                            <a href="{{ route('admin.answers') }}">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Resposta</span>
+                                {{-- <span class="badge badge-pill badge-warning">New</span> --}}
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu">
                             <a href="{{ route('admin.users') }}">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>Usuários</span>

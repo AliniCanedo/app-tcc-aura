@@ -54,6 +54,13 @@ Route::prefix('admin')
     Route::get('/documentacao/edit/{id}', 'App\Http\Controllers\Admin\DocumentationController@edit')->name('admin.documentations.edit');
     Route::post('/documentacao/save/{id}', 'App\Http\Controllers\Admin\DocumentationController@update')->name('admin.documentations.save');
     Route::post('/documentacao/delete/{id}', 'App\Http\Controllers\Admin\DocumentationController@destroy')->name('admin.documentations.delete');
+
+    // RESPOSTAS
+    Route::get('/respostas', 'App\Http\Controllers\Admin\AnswerController@index')->name('admin.answers');
+    Route::get('/respostas/list', 'App\Http\Controllers\Admin\AnswerController@list')->name('admin.answers.list');
+    Route::get('/respostas/edit/{id}', 'App\Http\Controllers\Admin\AnswerController@edit')->name('admin.answers.edit');
+    Route::post('/respostas/save/{id}', 'App\Http\Controllers\Admin\AnswerController@update')->name('admin.answers.save');
+    Route::post('/respostas/delete/{id}', 'App\Http\Controllers\Admin\AnswerController@destroy')->name('admin.answers.delete');
 });
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home'); 
     Route::get('/disciplina', 'App\Http\Controllers\AnswerController@disciplina')->name('answer.disciplina');
@@ -68,7 +75,7 @@ Route::prefix('admin')
     Route::get('/infra', 'App\Http\Controllers\AnswerController@infra')->name('answer.infra');
     Route::post('/disciplina', 'App\Http\Controllers\AnswerController@store')->name('client.store');
 
-    
+     
     Route::get('/email', function() {
         return new \App\Mail\agradecimento();
     });

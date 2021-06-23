@@ -579,7 +579,7 @@
                                 <i class="fa fa-circle"></i>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();"
+                                                                document.getElementById('logout-form').submit();"
                                     class="text-muted"><br>Sair</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
@@ -677,8 +677,9 @@
                         <span class="badge-sonar"></span>
                     </a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();" class="text-muted"> <i
-                            class="fa fa-power-off"></i></a>
+                                                        document.getElementById('logout-form').submit();"
+                        class="text-muted">
+                        <i class="fa fa-power-off"></i></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                     </form>
@@ -737,20 +738,18 @@
                         .addClass("active");
                 }
             });
+
             $("#close-sidebar").click(function() {
-                if(window.width() <= 750) {
-                    $(".page-wrapper").removeClass("toggled");
-                }
-             
+                $(".page-wrapper").removeClass("toggled");
             });
             $("#show-sidebar").click(function() {
                 $(".page-wrapper").addClass("toggled");
             });
+
             if ($(window).width() < 550) {
-            $(".page-wrapper").removeClass("toggled");
+                $(".page-wrapper").removeClass("toggled");
             }
         });
-
     </script>
 </body>
 

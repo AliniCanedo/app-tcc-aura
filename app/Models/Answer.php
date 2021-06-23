@@ -11,15 +11,18 @@ class Answer extends Model
 
     protected $fillable = [
         'id_matricula',
+        'id_classification',
+        'nao_sabe', 
+        'nao_aplica',        
     ];
 
     public function questions()
     {
-        return $this->belongsToMany(Question::class, 'answers_questions', 'answer_id', 'question_id')->withPivot(['nao_sabe','question_id','answer_id']);
+        return $this->belongsToMany(Question::class, 'answers_questions', 'answer_id', 'question_id');
+    }
+    public function classifications()
+    {
+        return $this->hasOne(Classification::class, 'id', 'id_classification');
     }
 
-    public function naoSabe()
-    {
-        return $this->belongsToMany(Question::class, 'answers_questions', 'answer_id', 'question_id')->withPivot(['nao_sabe','question_id','answer_id']);
-    }
 }

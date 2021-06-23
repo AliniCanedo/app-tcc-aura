@@ -11,6 +11,7 @@
                             <th>Id</th>
                             <th>Matrícula</th>
                             <th>Criado em</th>
+                            <th>Questão</th>
                             <th class="text-right">Ações</th>
                         </tr>
                     </thead>
@@ -49,6 +50,10 @@
                     {
                         data: 'created_at',
                         name: 'created_at'
+                    },
+                    {
+                        data: 'classifications',
+                        name: 'classifications'
                     },
                     {
                         data: 'actions',

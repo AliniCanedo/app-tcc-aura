@@ -12,8 +12,6 @@ class Answerquestion extends Model
     protected $fillable = [
         'answer_id',
         'question_id',
-        'nao_sabe', 
-        'nao_aplica'
     ];
 
 }

@@ -31,10 +31,14 @@ class AnswerController extends Controller
      */
     public function list()
     {
-        $data = Answer::with('questions')->orderBy('id', 'asc')->get();
+        $data = Answer::with('questions', 'classifications')->orderBy('id', 'asc')->get();
         return Datatables::of($data)
             ->editColumn('created_at', function ($d) {
                 return $d->created_at->format('d/m/Y');
+            })
+
+            ->editColumn('classifications', function ($d) {
+                return implode(', ', $d->classifications()->pluck('description')->toArray());
             })
             ->addColumn('actions', function ($d) {
                 return '<a href="'.route('admin.answers.edit', $d->id).'" class="btn btn-sm btn-secondary"><i class="bi bi-pencil-square"></i> Ver mais</a>';

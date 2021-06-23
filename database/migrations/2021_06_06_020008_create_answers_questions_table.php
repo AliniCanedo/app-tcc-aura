@@ -19,8 +19,6 @@ class CreateAnswersQuestionsTable extends Migration
             $table->foreign('answer_id')->references('id')->on('answers')->onDelete('cascade');
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-            $table->boolean('nao_sabe')->default(0);
-            $table->boolean('nao_aplica')->default(0);
             $table->timestamps();
         });
     }

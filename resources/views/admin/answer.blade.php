@@ -11,8 +11,9 @@
                 @foreach ($questions as $question)
                     <li class="list-group-item">
                         <b>Pergunta: {{ $question->id }}</b> {{ $question->description }} <br>
-                        @foreach ($question->answers as $answer)
-                        <b>Valor da Resposta:</b> {{ $answer->pivot->question_id }}
+                        <b>Valor da Resposta:</b> 
+                        @foreach ($question->questions as $answer)
+                        {{ $answer->pivot->question_id }}
                         @endforeach
                     </li>
                 @endforeach

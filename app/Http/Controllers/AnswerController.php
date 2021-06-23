@@ -76,7 +76,62 @@ class AnswerController extends Controller
     
     }
 
-    public function store(Request $request)
+    public function disciplinastore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);        
+        $data->naoSabe()->sync($request->nao_sabe);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }    
+
+    public function metodologiaStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }   
+
+    public function cursoadsStore(Request $request)
     {
         $data = new Answer();
       /*  dd($request->all()); */
@@ -102,4 +157,163 @@ class AnswerController extends Controller
         Alert::success('Sucesso', 'Obrigado por nos avaliar!');
         return redirect()->route('home');
     }    
+
+    public function professoresStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }   
+    public function coordenacaoStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }  
+    public function cursoatividadeStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    } 
+    public function intercambioStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }  
+    public function estagioStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+   
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }  
+    public function infraStore(Request $request)
+    {
+        $data = new Answer();
+      /*  dd($request->all()); */
+        $rules = [];
+        $rules['value_id'] = 'required';
+  
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        $data->id_matricula = Auth::user()->id;
+        $data->save();
+        $data->questions()->sync($request->value_id);
+        $email = new \App\Mail\agradecimento(
+            
+        );
+        $email->subject = 'Pesquisa de Satisfação AURA';
+        $user = $request->user();
+        \Illuminate\Support\Facades\Mail::to($user)->send($email);
+        Alert::success('Sucesso', 'Obrigado por nos avaliar!');
+        return redirect()->route('home');
+    }  
+
+    
 }

@@ -1,7 +1,7 @@
 @extends('layouts.aluno')
 
 @section('content')
-    <form action="{{ route('client.store') }}" method="post">
+    <form action="{{ route('intercambio.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @csrf
         @foreach ($data as $data)

@@ -17,4 +17,9 @@ class Answer extends Model
     {
         return $this->belongsToMany(Question::class, 'answers_questions', 'answer_id', 'question_id')->withPivot(['nao_sabe','question_id','answer_id']);
     }
+
+    public function naoSabe()
+    {
+        return $this->belongsToMany(Question::class, 'answers_questions', 'answer_id', 'question_id')->withPivot(['nao_sabe','question_id','answer_id']);
+    }
 }

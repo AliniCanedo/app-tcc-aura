@@ -84,7 +84,7 @@ class AnswerController extends Controller
     public function edit($id)
     {
         $data = Answer::findOrFail($id);
-        $questions = Question::with('answers')->orderBy('id', 'asc')->get();
+        $questions = Answer::with('questions')->orderBy('id', 'asc')->get();
         return view('admin.answer', compact('data', 'questions'));
     }
 
@@ -97,28 +97,7 @@ class AnswerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Alway save a New Answer to keep Version History!
-
-        $id = 0;
-        $data = new Answer;
-
-        $rules = [];
-        $rules['content'] = 'required|string';
-        $rules['notes'] = 'nullable|string';
-
-        $validator = Validator::make($request->all(), $rules);
-
-        if ($validator->fails()) {
-            Alert::warning('Atenção', 'Existem campos com problemas de preenchimento: ' . $validator->errors()->first() . ' Verifique e tente novamente!');
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $data->content = $request->content;
-        $data->notes = $request->notes;
-        $data->save();
-
-        Alert::success('Sucesso', 'Modelo de Documentação salvo com sucesso!');
-        return redirect()->route('admin.Answers');
+        //
     }
 
     /**
@@ -129,10 +108,6 @@ class AnswerController extends Controller
      */
     public function destroy($id)
     {
-        $data = Answer::findOrFail($id);
-        $data->delete();
-
-        Alert::success('Sucesso', 'Modelo de Documentação removido com sucesso.');
-        return redirect()->route('admin.answers');
+        //
     } 
 }

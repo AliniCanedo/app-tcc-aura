@@ -63,8 +63,8 @@ Route::prefix('admin')
     Route::post('/respostas/delete/{id}', 'App\Http\Controllers\Admin\AnswerController@destroy')->name('admin.answers.delete');
 });
     Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home'); 
-    Route::get('/disciplina', 'App\Http\Controllers\AnswerController@disciplina')->name('answer.disciplina');
 
+    Route::get('/disciplina', 'App\Http\Controllers\AnswerController@disciplina')->name('answer.disciplina');
     Route::get('/metodologia', 'App\Http\Controllers\AnswerController@metodologia')->name('answer.metodologia');
     Route::get('/cursoads', 'App\Http\Controllers\AnswerController@cursoads')->name('answer.curso');
     Route::get('/professores', 'App\Http\Controllers\AnswerController@professores')->name('answer.professores');
@@ -73,9 +73,17 @@ Route::prefix('admin')
     Route::get('/intercambio', 'App\Http\Controllers\AnswerController@intercambio')->name('answer.intercambio');
     Route::get('/estagio-tcc-projeto', 'App\Http\Controllers\AnswerController@estagiotccprojeto')->name('answer.estagiotccprojeto');
     Route::get('/infra', 'App\Http\Controllers\AnswerController@infra')->name('answer.infra');
-    Route::post('/disciplina', 'App\Http\Controllers\AnswerController@store')->name('client.store');
 
-     
+    Route::post('/disciplina', 'App\Http\Controllers\AnswerController@disciplinaStore')->name('disciplina.store');
+    Route::post('/metodologia', 'App\Http\Controllers\AnswerController@metodologiaStore')->name('metodologia.store');
+    Route::post('/cursoads', 'App\Http\Controllers\AnswerController@cursoadsStore')->name('cursoads.store');
+    Route::post('/professores', 'App\Http\Controllers\AnswerController@professoresStore')->name('professores.store');
+    Route::post('/coordenacao', 'App\Http\Controllers\AnswerController@coordenacaoStore')->name('coordenacao.store');
+    Route::post('/curso-atividade', 'App\Http\Controllers\AnswerController@cursoatividadeStore')->name('cursoatividade.store');
+    Route::post('/intercambio', 'App\Http\Controllers\AnswerController@intercambioStore')->name('intercambio.store');
+    Route::post('/estagio-tcc-projeto', 'App\Http\Controllers\AnswerController@estagioStore')->name('estagio.store');
+    Route::post('/infra', 'App\Http\Controllers\AnswerController@infraStore')->name('infra.store');
+
     Route::get('/email', function() {
         return new \App\Mail\agradecimento();
     });
@@ -95,4 +103,3 @@ Route::prefix('admin')
     });
 
 Auth::routes(); 
-

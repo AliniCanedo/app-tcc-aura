@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title', '') - {{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', '') - {{ config('app.name', 'Laravel') }}</title>
 
-        @yield('css-includes', '')
-        <link rel="stylesheet" href="{{ asset('/css/admin/style.css') }}">
-        <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.ico') }}" />
-        <script src="https://kit.fontawesome.com/9c75b420f6.js" crossorigin="anonymous"></script>
+    @yield('css-includes', '')
+    <link rel="stylesheet" href="{{ asset('/css/admin/style.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.ico') }}" />
+    <script src="https://kit.fontawesome.com/9c75b420f6.js" crossorigin="anonymous"></script>
 
 
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -37,12 +37,12 @@
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-                     <div class="sidebar-brand">
-                        <a href="/"><i class="fas fa-home"></i> Home</a>
-                        <div id="close-sidebar">
-                            <i class="fas fa-times"></i>
-                        </div>
+                <div class="sidebar-brand">
+                    <a href="/"><i class="fas fa-home"></i> Home</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
                     </div>
+                </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
                         <img class="img-responsive img-rounded"
@@ -103,7 +103,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('admin.documentations')}}">
+                            <a href="{{ route('admin.documentations') }}">
                                 <i class="fa fa-book"></i>
                                 <span>Documentação</span>
                                 <span class="badge badge-pill bg-primary">Beta</span>
@@ -157,9 +157,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        < script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin = "anonymous" >
     </script>
     </script>
     @include('sweetalert::alert')
@@ -167,9 +168,10 @@
     @yield('javascript', '')
     @yield('css-includes', '')
     @yield('css', '')
- 
+
     <script>
         jQuery(function($) {
+
             $(".sidebar-dropdown > a").click(function() {
                 $(".sidebar-submenu").slideUp(200);
                 if (
@@ -191,17 +193,18 @@
                         .addClass("active");
                 }
             });
+
             $("#close-sidebar").click(function() {
-                if(window.width() <= 750) {
-                    $(".page-wrapper").removeClass("toggled");
-                }
+                $(".page-wrapper").removeClass("toggled");
             });
             $("#show-sidebar").click(function() {
                 $(".page-wrapper").addClass("toggled");
             });
+
             if ($(window).width() < 550) {
                 $(".page-wrapper").removeClass("toggled");
-            }});
+            }
+        });
     </script>
 </body>
 

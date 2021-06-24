@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Question;
-use App\Models\Classification;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
@@ -87,9 +86,11 @@ class AnswerController extends Controller
         $data->id_matricula = Auth::user()->id;
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
+            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
+            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);   
@@ -130,9 +131,11 @@ class AnswerController extends Controller
         $data->id_matricula = Auth::user()->id;        
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
+            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
+            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -172,9 +175,11 @@ class AnswerController extends Controller
         $data->id_matricula = Auth::user()->id;     
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
+            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
+            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -214,9 +219,11 @@ class AnswerController extends Controller
         $data->id_matricula = Auth::user()->id;        
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
+            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
+            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -257,9 +264,11 @@ class AnswerController extends Controller
         $data->id_matricula = Auth::user()->id;
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
+            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
+            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);

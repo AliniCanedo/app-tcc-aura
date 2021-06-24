@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="checkbox" value="Não sabe responder" name="nao_aplica[]"
+                        <input type="checkbox" value="1" name="nao_aplica"
                             id="nao_aplica_{{ $data->id }}" class="ff-rating" />
                         <label for="nao_aplica_{{ $data->id }}">Não se Aplica</label>
                     </div>

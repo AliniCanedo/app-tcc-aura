@@ -41,7 +41,7 @@ class AnswerController extends Controller
                 return implode(', ', $d->classifications()->pluck('description')->toArray());
             })
             ->addColumn('actions', function ($d) {
-                return '<a href="'.route('admin.answers.edit', $d->id).'" class="btn btn-sm btn-secondary"><i class="bi bi-pencil-square"></i> Ver mais</a>';
+                return '<a href="'.route('admin.answers.show', $d->id).'" class="btn btn-sm btn-secondary"><i class="bi bi-pencil-square"></i> Ver mais</a>';
             })
             ->rawColumns(['actions'])
         ->make();
@@ -76,7 +76,9 @@ class AnswerController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Answer::findOrFail($id);
+        $questions = Answer::with('questions')->orderBy('id', 'asc')->get();
+        return view('admin.answer', compact('data', 'questions'));
     }
 
     /**
@@ -87,9 +89,7 @@ class AnswerController extends Controller
      */
     public function edit($id)
     {
-        $data = Answer::findOrFail($id);
-        $questions = Answer::with('questions')->orderBy('id', 'asc')->get();
-        return view('admin.answer', compact('data', 'questions'));
+        //
     }
 
     /**

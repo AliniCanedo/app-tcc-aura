@@ -58,7 +58,7 @@ Route::prefix('admin')
     // RESPOSTAS
     Route::get('/respostas', 'App\Http\Controllers\Admin\AnswerController@index')->name('admin.answers');
     Route::get('/respostas/list', 'App\Http\Controllers\Admin\AnswerController@list')->name('admin.answers.list');
-    Route::get('/respostas/edit/{id}', 'App\Http\Controllers\Admin\AnswerController@edit')->name('admin.answers.edit');
+    Route::get('/respostas/show/{id}', 'App\Http\Controllers\Admin\AnswerController@show')->name('admin.answers.show');
     Route::post('/respostas/save/{id}', 'App\Http\Controllers\Admin\AnswerController@update')->name('admin.answers.save');
     Route::post('/respostas/delete/{id}', 'App\Http\Controllers\Admin\AnswerController@destroy')->name('admin.answers.delete');
 });

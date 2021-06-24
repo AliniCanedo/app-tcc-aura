@@ -65,7 +65,7 @@
 
                 ],
                 order: [
-                    [1, 'asc']
+                    [1, 'desc']
                 ],
                 dom: '<"row mt-3"<"col-6"B><"col-6"f>><"row"<"col-sm-12"tr>><"row"<"col-sm-4 mt-2"l><"col-sm-4"i><"col-sm-4 mt-2"p>>',
                 // dom: '<"row mt-3"<"col-12"f>><"row"<"col-sm-12"tr>><"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',

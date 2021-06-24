@@ -19,7 +19,7 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $data = Answer::with('questions')->orderBy('id', 'asc')->get();
+        $data = Answer::with('questions')->orderBy('id', 'desc')->get();
         /* dd($data); */
         return view('admin.answers', compact('data'));
     }

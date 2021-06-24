@@ -65,9 +65,16 @@ class AnswerController extends Controller
     {
         $data = new Answer();
 
-        $request->validate([
-            'id_classification' => 'required|unique:answers'
-        ]);
+        $rules = [];
+        $rules['id_classification'] = 'required|unique:answers';
+
+        $validator = Validator::make($request->all(), $rules);
+  
+        if ($validator->fails()) {
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }  
+        
         $data->id_classification  = 1;
         $data->id_matricula = Auth::user()->id;
         

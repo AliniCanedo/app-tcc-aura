@@ -12,7 +12,7 @@
                     data-flex-maxlabel="Concordo Totalmente" class="multiple ff-rating" required>
                 <div class="row">
                     <div class="col">
-                        <input type="checkbox" value="Não sabe responder" name="nao_sabe[]" id="nao_sabe_{{ $data->id }}"
+                        <input type="checkbox" value="1" name="nao_sabe" id="nao_sabe_{{ $data->id }}"
                             class="ff-rating" data-toggle="tooltip" data-placement="bottom" title="{{$data->tooltip}}"/>
                         <label for="nao_sabe_{{ $data->id }}">Não sabe esponder</label>
                     </div>

@@ -7,7 +7,7 @@
             <input type="hidden" name="id" value="{{ $data->id }}">
 
             <ul class="list-group">
-                <li class="list-group-item">ID: {{ $data->id }} > Matricula: {{ $data->id_matricula }}</li>
+                <li class="list-group-item">ID: {{ $data->id }} > Matricula: {{ $data->id_matricula }}</li> 
                 @foreach ($questions as $question)
                     <li class="list-group-item">
                         <b>Pergunta: {{ $question->id }}</b> {{ $question->description }} <br>

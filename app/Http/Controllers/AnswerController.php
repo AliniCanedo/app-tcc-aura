@@ -85,7 +85,12 @@ class AnswerController extends Controller
             $data->id_classification  = 1;
         }     
         $data->id_matricula = Auth::user()->id;
-        $data->nao_sabe = $request->nao_sabe;
+        if(!empty($request->nao_sabe)) {
+            $data->nao_sabe = $request->nao_sabe;
+        }   
+        else {
+            $data->nao_sabe = 0;
+        }
         $data->save();
         $data->questions()->sync($request->value_id);   
 
@@ -123,7 +128,12 @@ class AnswerController extends Controller
         }
  
         $data->id_matricula = Auth::user()->id;        
-        $data->nao_sabe = $request->nao_sabe;
+        if(!empty($request->nao_sabe)) {
+            $data->nao_sabe = $request->nao_sabe;
+        }   
+        else {
+            $data->nao_sabe = 0;
+        }
         $data->save();
         $data->questions()->sync($request->value_id);
 
@@ -155,11 +165,17 @@ class AnswerController extends Controller
         
          foreach($id  as $id) {
              $data->id_classification = $id;
-         }     if($id = 3) {
-                 $data->id_classification  = 3;
-             }
-        $data->id_matricula = Auth::user()->id;        
-        $data->nao_sabe = $request->nao_sabe;
+         }     
+        if($id = 3) {
+            $data->id_classification  = 3;
+        }
+        $data->id_matricula = Auth::user()->id;     
+        if(!empty($request->nao_sabe)) {
+            $data->nao_sabe = $request->nao_sabe;
+        }   
+        else {
+            $data->nao_sabe = 0;
+        }
         $data->save();
         $data->questions()->sync($request->value_id);
         $email = new \App\Mail\agradecimento();
@@ -196,7 +212,12 @@ class AnswerController extends Controller
         }
 
         $data->id_matricula = Auth::user()->id;        
-        $data->nao_sabe = $request->nao_sabe;
+        if(!empty($request->nao_sabe)) {
+            $data->nao_sabe = $request->nao_sabe;
+        }   
+        else {
+            $data->nao_sabe = 0;
+        }
         $data->save();
         $data->questions()->sync($request->value_id);
         
@@ -234,7 +255,12 @@ class AnswerController extends Controller
         }
 
         $data->id_matricula = Auth::user()->id;
-        $data->nao_sabe = $request->nao_sabe;
+        if(!empty($request->nao_sabe)) {
+            $data->nao_sabe = $request->nao_sabe;
+        }   
+        else {
+            $data->nao_sabe = 0;
+        }
         $data->save();
         $data->questions()->sync($request->value_id);
         
@@ -265,7 +291,6 @@ class AnswerController extends Controller
         foreach($id  as $id) {
             $data->id_classification = $id;
         }
-              
         if($id = 6) {
             $data->id_classification  = 6;
         }

@@ -65,32 +65,17 @@ class AnswerController extends Controller
     {
         $data = new Answer();
 
-        $rules = [];
-        $rules['value_id'] = 'required';
-  
-        $validator = Validator::make($request->all(), $rules);
-  
-        if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $id = Question::with('classifications')->get();
-
-        foreach($id  as $id) {
-            $data->id_classification = $id;
-        }
-           
-        if($id = 1) {
-            $data->id_classification  = 1;
-        }     
+        $request->validate([
+            'id_classification' => 'required|unique:answers'
+        ]);
+        $data->id_classification  = 1;
         $data->id_matricula = Auth::user()->id;
+        
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
-            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
-            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);   
@@ -109,33 +94,21 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
+        $rules['id_classification'] = 'unique:answers';
   
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
-        $id = Question::with('classifications')->get();
-
-        foreach($id  as $id) {
-            $data->id_classification = $id;
-        }
-           
-        if($id = 2) {
-            $data->id_classification  = 2;
-        }
- 
+        $data->id_classification  = 2;
         $data->id_matricula = Auth::user()->id;        
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
-            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
-            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -155,31 +128,20 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
-  
+        $rules['id_classification'] = 'unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
-         $id = Question::with('classifications')->get();
-        
-         foreach($id  as $id) {
-             $data->id_classification = $id;
-         }     
-        if($id = 3) {
-            $data->id_classification  = 3;
-        }
+        $data->id_classification  = 3;
         $data->id_matricula = Auth::user()->id;     
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
-            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
-            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -196,35 +158,24 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
-  
+        $rules['id_classification'] = 'unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
  
-        $id = Question::with('classifications')->get();
-        
 
-          foreach($id  as $id) {
-              $data->id_classification = $id;
-          }
-             
-        if($id = 4) {
-            $data->id_classification  = 4;
-        }
+        $data->id_matricula = Auth::user()->id;       
 
-        $data->id_matricula = Auth::user()->id;        
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
-            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
-            $data->nao_aplica = 0;
         }
+        $data->id_classification  = 4;
         $data->save();
         $data->questions()->sync($request->value_id);
         
@@ -241,34 +192,20 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
-  
+        $rules['id_classification'] = 'unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
- 
-        $id = Question::with('classifications')->get();
-        
-
-        foreach($id  as $id) {
-            $data->id_classification = $id;
-        }
-             
-        if($id = 5) {
-            $data->id_classification  = 5;
-        }
-
+        $data->id_classification  = 5;
         $data->id_matricula = Auth::user()->id;
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
-            $data->nao_aplica = $request->nao_aplica;
         }   
         else {
             $data->nao_sabe = 0;
-            $data->nao_aplica = 0;
         }
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -286,23 +223,14 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
-  
+        $rules['id_classification'] = 'unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-   
-        $id = Question::with('classifications')->get();
-
-        foreach($id  as $id) {
-            $data->id_classification = $id;
-        }
-        if($id = 6) {
-            $data->id_classification  = 6;
-        }
+        $data->id_classification  = 6;
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -320,23 +248,15 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
-  
+        $rules['id_classification'] = 'unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-     
-        $id = Question::with('classifications')->get();
-        
-        foreach($id  as $id) {
-            $data->id_classification = $id;
-        }     
-        if($id = 7) {
-            $data->id_classification  = 7;
-        }
+        $data->id_classification  = 7;
+
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -354,25 +274,15 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['value_id'] = 'required';
-   
+        $rules['id_classification'] = 'unique:answers';
+
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
+            Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
-        }
-  
-        $id = Question::with('classifications')->get();
-
-        foreach($id  as $id) {
-            $data->id_classification = $id;
-        }
-              
-        if($id = 8) {
-            $data->id_classification  = 8;
-        }
-
+        }         
+        $data->id_classification  = 8;
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -389,24 +299,12 @@ class AnswerController extends Controller
     {
         $data = new Answer();
 
-        $rules = [];
-        $rules['value_id'] = 'required';
-  
-        $validator = Validator::make($request->all(), $rules);
-  
-        if ($validator->fails()) {
-            Alert::warning('Atenção', 'É necessário escolher uma opção!');
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-      
-        $id = Question::with('classifications')->get();
-        
-         foreach($id  as $id) {
-             $data->id_classification = $id;
-         }     
-        if($id = 9) {
-            $data->id_classification  = 9;
-        }
+
+        $request->validate([
+            'id_classification' => 'unique:answers'
+        ]);
+
+        $data->id_classification  = 9;
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);

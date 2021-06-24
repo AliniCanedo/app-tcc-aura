@@ -1,6 +1,15 @@
 @extends('layouts.aluno')
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+         <ul>
+            @foreach ($errors->all() as $error)
+                 <p>Você já respondeu esse questionário</p>
+            @endforeach
+         </ul>
+    </div>
+@endif
     <form action="{{ route('infra.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @csrf

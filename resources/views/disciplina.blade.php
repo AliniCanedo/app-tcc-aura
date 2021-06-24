@@ -1,9 +1,19 @@
 @extends('layouts.aluno')
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+         <ul>
+            @foreach ($errors->all() as $error)
+                 <p>Você já respondeu esse questionário</p>
+            @endforeach
+         </ul>
+    </div>
+@endif
     <form action="{{ route('disciplina.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @csrf
+        
         @foreach ($data as $data)
             @if ($data->modelo->id === 1 && $data->classifications->id === 1)
                 <h5 class="mb-3">{{ $data->classifications->description }}</h5>

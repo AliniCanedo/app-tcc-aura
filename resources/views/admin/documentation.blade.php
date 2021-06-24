@@ -17,7 +17,7 @@
                     <label for="content" class="col-12 col-form-label">Documentação</label>
                     <div class="col-12">
                         <textarea name="content" id="content" rows="5" class="form-control"
-                            required>{{ $data->content }}</textarea>
+                            required>{{ old('content',$data->content) }}</textarea>
                         @error('content')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

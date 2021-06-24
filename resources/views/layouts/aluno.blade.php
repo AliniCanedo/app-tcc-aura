@@ -579,7 +579,7 @@
                                 <i class="fa fa-circle"></i>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();"
+                                                                        document.getElementById('logout-form').submit();"
                                     class="text-muted"><br>Sair</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
@@ -677,7 +677,7 @@
                         <span class="badge-sonar"></span>
                     </a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();"
+                                                                document.getElementById('logout-form').submit();"
                         class="text-muted">
                         <i class="fa fa-power-off"></i></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">

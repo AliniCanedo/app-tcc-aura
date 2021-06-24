@@ -24,7 +24,7 @@
                     'Perguntas por classificação com melhor avaliação '
                 ],
                 datasets: [{
-                    label: '# of Votes',
+                    label: '#Respostas',
                     data: [12, 19, 3],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',

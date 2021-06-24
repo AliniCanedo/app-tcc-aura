@@ -573,14 +573,14 @@
                                 alt="User picture">
                         </div>
                         <div class="user-info">
-                            {{-- <span class="user-name"> {{ Auth::user()->name }} <span class="caret"></span>
-                        </span> --}}
+                            <span class="user-name"> {{ Auth::user()->name }} <span class="caret"></span>
+                            </span>
                             <span class="user-status">
                                 <i class="fa fa-circle"></i>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <span>Online</span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();"
-                                    class="text-muted"><br>Sair</a>
+                                                document.getElementById('logout-form').submit();"
+                                    class="text-muted">Sair</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 </form>
@@ -677,7 +677,7 @@
                         <span class="badge-sonar"></span>
                     </a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();"
+                                                                    document.getElementById('logout-form').submit();"
                         class="text-muted">
                         <i class="fa fa-power-off"></i></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">

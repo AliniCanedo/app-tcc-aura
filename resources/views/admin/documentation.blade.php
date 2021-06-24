@@ -74,7 +74,7 @@
 @endsection
 @section('javacript-includes')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js" defer></script>
 @endsection
 @section('javascript')
     <script>

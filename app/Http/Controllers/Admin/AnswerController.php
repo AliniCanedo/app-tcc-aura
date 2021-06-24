@@ -19,7 +19,7 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $data = Answer::with('questions')->orderBy('id', 'desc')->get();
+        $data = Answer::with('questions')->orderBy('id', 'asc')->get();
         /* dd($data); */
         return view('admin.answers', compact('data'));
     }
@@ -36,6 +36,7 @@ class AnswerController extends Controller
             ->editColumn('created_at', function ($d) {
                 return $d->created_at->format('d/m/Y');
             })
+
             ->editColumn('classifications', function ($d) {
                 return implode(', ', $d->classifications()->pluck('description')->toArray());
             })
@@ -77,7 +78,6 @@ class AnswerController extends Controller
     {
         $data = Answer::findOrFail($id);
         $questions = Answer::with('questions')->orderBy('id', 'asc')->get();
-        /* dd($questions,$data ); */
         return view('admin.answer', compact('data', 'questions'));
     }
 

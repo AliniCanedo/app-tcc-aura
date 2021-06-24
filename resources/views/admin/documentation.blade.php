@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row mt-5">
                 <label for="notes" class="col-sm-2 col-form-label">Observações Internas</label>
                 <div class="col-sm-10">
                     <textarea name="notes" id="notes" rows="3" class="form-control">{{ old('notes', $data->notes) }}</textarea>

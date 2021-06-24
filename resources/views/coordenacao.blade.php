@@ -2,7 +2,7 @@
 
 @section('content')
     @if (!empty($teste->id_classification == 5) && $teste->id_matricula == Auth::user()->id)
-        <div class="text-center mt-5">
+        <div class="text-center my-5">
             <h1>Você já respondeu esse questionário</h1>
             <i class="fas fa-check-circle mt-4" style="color: green; font-size: 64px"></i>
         </div>

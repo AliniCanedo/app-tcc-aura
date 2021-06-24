@@ -14,4 +14,5 @@
                 <p>Escolha um tema ao lado para responder</p>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

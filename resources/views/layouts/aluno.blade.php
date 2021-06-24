@@ -575,7 +575,7 @@
                         <div class="user-info">
                             <span class="user-name"> {{ Auth::user()->name }} <span class="caret"></span>
                             </span>
-                            <span class="user-status">
+                            <span class="user-status"> 
                                 <i class="fa fa-circle"></i>
                                 <span>Online</span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();

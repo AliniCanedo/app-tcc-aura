@@ -38,7 +38,7 @@ class AnswerController extends Controller
             $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-    return view('curso-ads', compact('data','answer'));    
+        return view('curso-ads', compact('data','answer'));    
     }
 
     public function professores(Request $request)

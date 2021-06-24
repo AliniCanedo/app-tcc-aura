@@ -7,15 +7,14 @@
             <input type="hidden" name="id" value="{{ $data->id }}">
 
             <ul class="list-group">
-                <li class="list-group-item">ID: {{ $data->id }} > Matricula: {{ $data->id_matricula }}</li> 
+                <li class="list-group-item">ID: {{ $data->id }} > Matricula: {{ $data->id_matricula }}</li>
                 @foreach ($questions as $question)
-                    <li class="list-group-item">
-                        <b>Pergunta: {{ $question->id }}</b> {{ $question->description }} <br>
-                        <b>Valor da Resposta:</b> 
-                        @foreach ($question->questions as $answer)
-                        {{ $answer->pivot->question_id }}
-                        @endforeach
-                    </li>
+                    @foreach ($question->questions as $answer)
+                        <p>
+                            Pergunta: {{ $answer->description }}
+                            <b>Resposta:</b> {{ $answer->pivot->question_id }}
+                        </p>
+                    @endforeach
                 @endforeach
             </ul>
 

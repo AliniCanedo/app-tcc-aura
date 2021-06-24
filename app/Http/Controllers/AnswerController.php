@@ -13,88 +13,88 @@ class AnswerController extends Controller
 {
     public function disciplina()
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('disciplina', compact('data','teste'));
+        return view('disciplina', compact('data','answer'));
     }
 
     public function metodologia(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('metodologia', compact('data','teste'));
+        return view('metodologia', compact('data','answer'));
     }
 
     public function cursoads(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-    return view('curso-ads', compact('data','teste'));    
+    return view('curso-ads', compact('data','answer'));    
     }
 
     public function professores(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('professores', compact('data','teste'));    
+        return view('professores', compact('data','answer'));    
     }
     public function coordenacao(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('coordenacao', compact('data','teste'));    
+        return view('coordenacao', compact('data','answer'));    
     }
     public function cursoAtividade(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('curso-atividade', compact('data','teste'));    
+        return view('curso-atividade', compact('data','answer'));    
     }
     public function intercambio(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('intercambio', compact('data','teste'));    
+        return view('intercambio', compact('data','answer'));    
     }
     public function estagiotccprojeto(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('estagiotccprojeto', compact('data','teste'));    
+        return view('estagiotccprojeto', compact('data','answer'));    
     }
 
     public function infra(Request $request)
     {
-        $teste = Answer::get();
-        foreach($teste as $teste) {
-            $teste = $teste;
+        $answer = Answer::get();
+        foreach($answer as $answer) {
+            $answer = $answer;
         }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('infraestrutura', compact('data','teste'));    
+        return view('infraestrutura', compact('data','answer'));    
     }
 
     public function disciplinastore(Request $request)

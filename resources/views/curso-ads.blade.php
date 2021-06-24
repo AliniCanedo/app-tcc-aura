@@ -1,7 +1,7 @@
 @extends('layouts.aluno')
 
 @section('content')
-    @if (!empty($teste->id_classification) && $teste->id_matricula == Auth::user()->id)
+    @if (!empty($answer->id_classification) && $answer->id_matricula == Auth::user()->id)
         <div class="text-center my-5">
             <h1>Você já respondeu o questionário!</h1>
             <i class="fas fa-check-circle mt-4" style="color: green; font-size: 64px"></i>

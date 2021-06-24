@@ -1,48 +1,49 @@
 @extends('layouts.aluno')
 
 @section('content')
-    <form action="{{ route('cursoads.store') }}" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="id_classification" value="3">
-        @if ($errors->any())
-        <div class="alert alert-danger">
+    @if (!empty($teste->id_classification) && $teste->id_matricula == Auth::user()->id)
+        <div class="alert alert-success">
             <ul>
-                @foreach ($errors->all() as $error)
-                    <p>Você já respondeu esse questionário</p>
-                @endforeach
+                <p>Você já respondeu esse questionário</p>
             </ul>
         </div>
-        @endif
-        @csrf
-        @foreach ($data as $data)
-            @if ($data->modelo->id === 1 && $data->classifications->id === 3)
-                <h5>{{ $data->classifications->description }}</h5>
-                <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
-                <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
-                    data-flex-maxlabel="Concordo Totalmente" class="multiple ff-rating" required>
-                <div class="row">
-                    <div class="col">
-                        <input type="checkbox" value="1" name="nao_sabe" id="nao_sabe_{{ $data->id }}"
-                            class="ff-rating" data-toggle="tooltip" data-placement="bottom" title="{{$data->tooltip}}"/>
-                        <label for="nao_sabe_{{ $data->id }}">Não sabe esponder</label>
+    @else
+        <form action="{{ route('cursoads.store') }}" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="id_classification" value="3">
+            @csrf
+            @foreach ($data as $data)
+                @if ($data->modelo->id === 1 && $data->classifications->id === 3)
+                    <h5>{{ $data->classifications->description }}</h5>
+                    <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-info-circle"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip }}"></i></p>
+                    <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
+                        data-flex-maxlabel="Concordo Totalmente" class="multiple ff-rating" required>
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" value="1" name="nao_sabe" id="nao_sabe_{{ $data->id }}"
+                                class="ff-rating" data-toggle="tooltip" data-placement="bottom"
+                                title="{{ $data->tooltip }}" />
+                            <label for="nao_sabe_{{ $data->id }}">Não sabe esponder</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input type="checkbox" value="1" name="nao_aplica"
-                            id="nao_aplica_{{ $data->id }}" class="ff-rating" />
-                        <label for="nao_aplica_{{ $data->id }}">Não se aplica</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" value="1" name="nao_aplica" id="nao_aplica_{{ $data->id }}"
+                                class="ff-rating" />
+                            <label for="nao_aplica_{{ $data->id }}">Não se aplica</label>
+                        </div>
                     </div>
+                    <hr>
+                @endif
+            @endforeach
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Responder</button>
                 </div>
-                <hr>
-            @endif
-        @endforeach
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Responder</button>
             </div>
-        </div>
-    </form>
+        </form>
+    @endif
 @endsection
 @section('css-includes')
     <link rel="stylesheet" href="{{ asset('css/ffrating.css') }}">
@@ -67,6 +68,5 @@
                 max: 10
             });
         });
-
     </script>
 @endsection

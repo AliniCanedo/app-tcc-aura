@@ -13,60 +13,96 @@ class AnswerController extends Controller
 {
     public function disciplina()
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('disciplina', compact('data'));
+        return view('disciplina', compact('data','teste'));
     }
 
     public function metodologia(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('metodologia', compact('data'));
+        return view('metodologia', compact('data','teste'));
     }
 
     public function cursoads(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-    return view('curso-ads', compact('data'));    
+    return view('curso-ads', compact('data','teste'));    
     }
 
     public function professores(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('professores', compact('data'));    
+        return view('professores', compact('data','teste'));    
     }
     public function coordenacao(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('coordenacao', compact('data'));    
+        return view('coordenacao', compact('data','teste'));    
     }
     public function cursoAtividade(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('curso-atividade', compact('data'));    
+        return view('curso-atividade', compact('data','teste'));    
     }
     public function intercambio(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('intercambio', compact('data'));    
+        return view('intercambio', compact('data','teste'));    
     }
     public function estagiotccprojeto(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('estagiotccprojeto', compact('data'));    
+        return view('estagiotccprojeto', compact('data','teste'));    
     }
 
     public function infra(Request $request)
     {
+        $teste = Answer::get();
+        foreach($teste as $teste) {
+            $teste = $teste;
+        }
         $data = Question::with('classifications', 'modelo')->orderby('id')->get();
-        return view('infraestrutura', compact('data'));    
+        return view('infraestrutura', compact('data','teste'));    
     }
 
     public function disciplinastore(Request $request)
     {
+       
         $data = new Answer();
-
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
 
         $validator = Validator::make($request->all(), $rules);
   
@@ -75,7 +111,7 @@ class AnswerController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }  
         
-        $data->id_classification  = 1;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;
         
         if(!empty($request->nao_sabe)) {
@@ -101,7 +137,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
   
         $validator = Validator::make($request->all(), $rules);
   
@@ -109,7 +145,7 @@ class AnswerController extends Controller
             Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $data->id_classification  = 2;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;        
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
@@ -135,14 +171,14 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
             Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $data->id_classification  = 3;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;     
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
@@ -165,7 +201,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
@@ -182,7 +218,7 @@ class AnswerController extends Controller
         else {
             $data->nao_sabe = 0;
         }
-        $data->id_classification  = 4;
+        $data->id_classification  = $request->id_classification;
         $data->save();
         $data->questions()->sync($request->value_id);
         
@@ -199,14 +235,14 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
             Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $data->id_classification  = 5;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;
         if(!empty($request->nao_sabe)) {
             $data->nao_sabe = $request->nao_sabe;
@@ -230,14 +266,14 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
             Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $data->id_classification  = 6;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -255,14 +291,14 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
             Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $data->id_classification  = 7;
+        $data->id_classification  = $request->id_classification;
 
         $data->id_matricula = Auth::user()->id;
         $data->save();
@@ -281,7 +317,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'required|unique:answers';
+        $rules['id_classification'] = 'required';
 
         $validator = Validator::make($request->all(), $rules);
   
@@ -289,7 +325,7 @@ class AnswerController extends Controller
             Alert::warning('Atenção', 'Você já respondeu esse questionário!');
             return redirect()->back()->withErrors($validator)->withInput();
         }         
-        $data->id_classification  = 8;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);
@@ -308,10 +344,10 @@ class AnswerController extends Controller
 
 
         $request->validate([
-            'id_classification' => 'required|unique:answers'
+            'id_classification' => 'required'
         ]);
 
-        $data->id_classification  = 9;
+        $data->id_classification  = $request->id_classification;
         $data->id_matricula = Auth::user()->id;
         $data->save();
         $data->questions()->sync($request->value_id);

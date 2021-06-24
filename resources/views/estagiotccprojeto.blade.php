@@ -3,15 +3,26 @@
 @section('content')
     <form action="{{ route('estagio.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="id_classification" value="8">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <p>Você já respondeu esse questionário</p>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @csrf
         @foreach ($data as $data)
             @if ($data->modelo->id === 2 && $data->classifications->id === 8)
                 <h5>{{ $data->classifications->description }}</h5>
-                <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-danger-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip}}"></i></p>
+                <p><small class="text-danger">*</small> {{ $data->description }} <i class="fas fa-danger-circle"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $data->tooltip }}"></i></p>
                 <div class="row">
                     <div class="col d-flex mb-5">
                         <input type="textbox" id="value_id" name="value_id[]" data-flex-minlabel="Discordo"
-                        data-flex-maxlabel="Concordo Totalmente" class="nps ff-rating" required>
+                            data-flex-maxlabel="Concordo Totalmente" class="nps ff-rating" required>
                     </div>
                     <hr>
                 </div>
@@ -40,6 +51,5 @@
                 max: 10
             });
         });
-
     </script>
 @endsection

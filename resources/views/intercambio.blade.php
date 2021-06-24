@@ -3,6 +3,16 @@
 @section('content')
     <form action="{{ route('intercambio.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="id_classification" value="7">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <p>Você já respondeu esse questionário</p>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         @csrf
         @foreach ($data as $data)
             @if ($data->modelo->id === 2 && $data->classifications->id === 7)

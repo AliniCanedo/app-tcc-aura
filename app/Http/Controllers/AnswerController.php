@@ -94,7 +94,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
   
         $validator = Validator::make($request->all(), $rules);
   
@@ -128,7 +128,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
@@ -158,7 +158,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
@@ -192,7 +192,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
@@ -223,7 +223,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
@@ -248,7 +248,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
         $validator = Validator::make($request->all(), $rules);
   
         if ($validator->fails()) {
@@ -274,7 +274,7 @@ class AnswerController extends Controller
         $data = new Answer();
 
         $rules = [];
-        $rules['id_classification'] = 'unique:answers';
+        $rules['id_classification'] = 'required|unique:answers';
 
         $validator = Validator::make($request->all(), $rules);
   
@@ -301,7 +301,7 @@ class AnswerController extends Controller
 
 
         $request->validate([
-            'id_classification' => 'unique:answers'
+            'id_classification' => 'required|unique:answers'
         ]);
 
         $data->id_classification  = 9;

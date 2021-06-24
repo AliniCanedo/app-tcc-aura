@@ -3,7 +3,17 @@
 @section('content')
     <form action="{{ route('metodologia.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="id_classification" value="2">
         @csrf
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <p>Você já respondeu esse questionário</p>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         @foreach ($data as $data)
             @if ($data->modelo->id === 1 && $data->classifications->id === 2)
                 <h5>{{ $data->classifications->description }}</h5>
